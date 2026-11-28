@@ -413,6 +413,75 @@ body:not(.pedra-ilusao) .acao--ilusao { display: none !important; }
 .artefato b { font-size: 14px; }
 .artefato small { display: block; font-size: 11.5px; color: var(--nevoa); margin: 2px 0 4px; }
 .artefato p { margin: 0; font-size: 12.5px; line-height: 1.35; }
+.altar-lista { display: grid; gap: 6px; margin: 10px 0; }
+.altar-item { display: grid; grid-template-columns: 34px 1fr auto; gap: 8px; align-items: center; padding: 7px 9px; border-radius: 11px; background: rgba(181, 123, 255, .07); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cor) 40%, transparent); }
+.altar-item__icone { width: 32px; height: 32px; }
+.altar-item b { display: block; font-size: 13px; }
+.altar-item small { display: block; font-size: 11px; color: var(--nevoa); }
+.altar-item__st { font-size: 10.5px; font-weight: 700; padding: 3px 7px; border-radius: 99px; background: rgba(255, 255, 255, .08); white-space: nowrap; }
+.altar-item--falta { opacity: .55; }
+.altar-item--carregada .altar-item__st { background: rgba(255, 214, 140, .2); color: #FFE3A8; }
+.altar-item--colocada .altar-item__st, .altar-item--armazenada .altar-item__st { background: rgba(150, 200, 255, .14); color: #CFE6FF; }
+.altar-item--ultima { box-shadow: inset 0 0 0 1.5px rgba(255, 214, 140, .7); }
+.conv-prog { margin: 10px 0; padding: 10px; border-radius: 12px; background: rgba(120, 160, 255, .08); box-shadow: inset 0 0 0 1px rgba(170, 190, 255, .25); }
+.conv-prog__rot { display: flex; justify-content: space-between; font-size: 12.5px; }
+.conv-prog__barra { height: 8px; margin: 6px 0; border-radius: 99px; background: rgba(255, 255, 255, .08); overflow: hidden; }
+.conv-prog__barra i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #B58CFF, #8FD8FF); }
+.conv-prog__obj { margin: 4px 0 0; font-size: 12.5px; color: #E8F0FF; }
+.artefato small.artefato__altar { color: #CBB6FF; }
+/* 0.9.1: todas as habilidades da Ilusão numa tela só */
+body.pedra-ilusao #btn-duplicacao { right: 12px; bottom: 170px; width: 58px; height: 58px; }
+body.pedra-ilusao #btn-distorcao { right: 99px; bottom: 156px; width: 60px; height: 60px; }
+body.pedra-ilusao #btn-espelhos { right: 12px; bottom: 236px; width: 56px; height: 56px; }
+body.pedra-ilusao #btn-projecao { right: 103px; bottom: 224px; width: 54px; height: 54px; }
+body.pedra-ilusao #btn-labirinto { right: 12px; bottom: 298px; width: 54px; height: 54px; }
+body.pedra-ilusao #btn-realidade { right: 99px; bottom: 284px; width: 58px; height: 58px; }
+#btn-duplicacao svg, #btn-distorcao svg, #btn-espelhos svg, #btn-projecao svg, #btn-labirinto svg, #btn-realidade svg { width: 22px; height: 22px; }
+#btn-duplicacao span, #btn-distorcao span, #btn-espelhos span, #btn-projecao span, #btn-labirinto span, #btn-realidade span { font-size: 7px; letter-spacing: 0; }
+@media (orientation: landscape) and (max-height: 520px) {
+  body.pedra-ilusao #btn-copias { right: 0; bottom: 0; width: 62px; height: 62px; }
+  body.pedra-ilusao #btn-invis { right: 66px; bottom: 0; width: 62px; height: 62px; }
+  body.pedra-ilusao #btn-cenario { right: 132px; bottom: 0; width: 62px; height: 62px; }
+  body.pedra-ilusao #btn-duplicacao { right: 0; bottom: 66px; width: 62px; height: 62px; }
+  body.pedra-ilusao #btn-distorcao { right: 66px; bottom: 66px; width: 62px; height: 62px; }
+  body.pedra-ilusao #btn-espelhos { right: 132px; bottom: 66px; width: 62px; height: 62px; }
+  body.pedra-ilusao #btn-projecao { right: 0; bottom: 132px; width: 62px; height: 62px; }
+  body.pedra-ilusao #btn-labirinto { right: 66px; bottom: 132px; width: 62px; height: 62px; }
+  body.pedra-ilusao #btn-realidade { right: 132px; bottom: 132px; width: 62px; height: 62px; }
+  body.pedra-ilusao #btn-esquiva { right: 202px; bottom: 6px; width: 52px; height: 52px; }
+}
+/* 1.0: Pedra do Gelo, Reino Glacial, mundos */
+.abas--3 { grid-template-columns: repeat(3, 1fr); }
+.aba--gelo[aria-selected="true"] { background: linear-gradient(180deg, rgba(225, 245, 255, .55), rgba(70, 140, 210, .6)); box-shadow: inset 0 0 0 1px rgba(235, 250, 255, .8); color: #fff; }
+.cartao--gelo { box-shadow: inset 0 0 0 1px rgba(225, 245, 255, .75), 0 0 60px rgba(150, 215, 255, .3), 0 30px 60px rgba(0, 0, 0, .55); }
+.pedra-gelo-grande { width: 112px; height: 112px; margin: 2px auto 0; animation: pedraGeloFlutua 3.2s ease-in-out infinite; filter: drop-shadow(0 0 16px rgba(160, 220, 255, .65)); }
+.pedra-gelo-grande svg, .gelo-cab__pedra svg, .mundo-item__icone svg { width: 100%; height: 100%; display: block; }
+@keyframes pedraGeloFlutua { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-6px) rotate(2deg); } }
+.recompensas--gelo li { background: rgba(150, 215, 255, .08); box-shadow: inset 0 0 0 1px rgba(190, 230, 255, .3); }
+.recompensas--gelo li b { color: #CFEFFF; }
+.gelo-adormecido { margin: 4px 0; padding: 10px 12px; border-radius: 12px; font-style: italic; font-size: 13.5px; text-align: center; color: #E2F4FF; background: linear-gradient(90deg, rgba(120, 190, 255, .1), rgba(220, 245, 255, .14), rgba(120, 190, 255, .1)); box-shadow: inset 0 0 0 1px rgba(200, 235, 255, .35); }
+.gelo-cab { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: center; text-align: left; padding: 10px 12px; border-radius: 12px; background: rgba(160, 220, 255, .09); box-shadow: inset 0 0 0 1px rgba(200, 235, 255, .3); }
+.gelo-cab__pedra { width: 56px; height: 56px; }
+.gelo-cab strong { display: block; font-size: 15px; font-weight: 600; }
+.gelo-cab span { font-size: 12px; color: #BFE3FA; }
+.evo-info--gelo span { background: rgba(160, 220, 255, .08); }
+.gelo-texto { margin: 0; font-size: 12.5px; line-height: 1.4; text-align: left; color: var(--nevoa); }
+.gelo-arvore { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.gelo-no { display: grid; justify-items: center; gap: 4px; padding: 10px 4px; border-radius: 11px; background: rgba(120, 160, 210, .07); box-shadow: inset 0 0 0 1px rgba(170, 200, 235, .2); opacity: .7; }
+.gelo-no svg { width: 16px; height: 16px; fill: none; stroke: #BFD6EE; stroke-width: 1.8; }
+.gelo-no span { font-size: 10.5px; color: #AFC6DE; }
+.conv-prog--gelo .conv-prog__barra i { background: linear-gradient(90deg, #DFF6FF, #6FB8F0); }
+.mundos-lista { display: grid; gap: 6px; margin: 6px 0 10px; }
+.mundo-item { display: grid; grid-template-columns: 34px 1fr auto; gap: 9px; align-items: center; text-align: left; padding: 8px 10px; border-radius: 11px; background: rgba(181, 123, 255, .07); box-shadow: inset 0 0 0 1px rgba(214, 180, 255, .18); }
+.mundo-item__icone { width: 32px; height: 32px; color: #D9C4FF; }
+.mundo-item b { display: block; font-size: 13px; }
+.mundo-item small { display: block; font-size: 11px; color: var(--nevoa); line-height: 1.3; }
+.mundo-item__st { font-size: 10.5px; font-weight: 700; padding: 3px 7px; border-radius: 99px; background: rgba(255, 255, 255, .08); white-space: nowrap; }
+.mundo-item--gelo { background: rgba(150, 215, 255, .08); box-shadow: inset 0 0 0 1px rgba(200, 235, 255, .32); }
+.mundo-item--gelo .mundo-item__icone { color: #CFEFFF; }
+.mundo-item--trav { opacity: .55; }
+.mundo-item--aqui { box-shadow: inset 0 0 0 1.5px rgba(255, 224, 138, .8); }
+.mundo-item--aqui .mundo-item__st { background: rgba(255, 214, 140, .2); color: #FFE3A8; }
 .artefato--falta { opacity: .6; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); }
 .categorias--loja, .categorias--grupos { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
 .categorias--loja .cat, .categorias--grupos .cat { flex: 0 0 auto; }
@@ -1165,6 +1234,13 @@ const Som = (() => {
     maos: (t) => { osc('sawtooth', 120, 50, t, 0.3, 0.12); chiado(t, 0.25, 0.18, 'lowpass', 900, 200); },
     gritoPesadelo: (t) => { osc('sawtooth', 220, 90, t, 1.1, 0.1); osc('square', 233, 95, t + 0.03, 1.1, 0.05); chiado(t, 1, 0.16, 'bandpass', 800, 300); },
     colapsoIlu: (t) => { osc('sine', 60, 30, t, 0.8, 0.35); chiado(t, 0.8, 0.3, 'lowpass', 3000, 200); acorde(t + 0.1, [880, 698, 587], 'triangle', 0.4, 0.05, 0.06); },
+    reliquia: (t) => { osc('sine', 880, 1320, t, 0.35, 0.05); osc('triangle', 1760, 1320, t + 0.05, 0.3, 0.03); },
+    convergencia: (t) => { acorde(t, [262, 330, 392, 523], 'triangle', 1.4, 0.05, 0.12); acorde(t + 0.5, [294, 370, 440, 587], 'sine', 1.6, 0.04, 0.1); osc('sine', 65, 98, t, 2, 0.12); chiado(t, 1.8, 0.05, 'bandpass', 1200, 4000); },
+    geloCristal: (t) => { osc('sine', 1568, 2093, t, 0.28, 0.035); osc('triangle', 2637, 2349, t + 0.05, 0.32, 0.018); },
+    geloNasce: (t) => { acorde(t, [523, 659, 784, 1047], 'sine', 1.8, 0.05, 0.09); acorde(t + 0.35, [1319, 1568, 2093], 'triangle', 1.6, 0.022, 0.12); chiado(t, 2.2, 0.07, 'highpass', 3000, 6000); osc('sine', 98, 65, t, 2, 0.12); },
+    portalGelo: (t) => { chiado(t, 1.4, 0.16, 'bandpass', 600, 3200); osc('sine', 330, 990, t, 1.1, 0.05); osc('triangle', 1760, 2640, t + 0.3, 0.6, 0.02); },
+    vento: (t) => { chiado(t, 3.2, 0.04, 'bandpass', 380, 760); },
+    ventoForte: (t) => { chiado(t, 3.6, 0.08, 'bandpass', 520, 1300); chiado(t + 0.8, 2.4, 0.04, 'highpass', 2200, 3200); },
     vitoria: (t) => acorde(t, [523, 659, 784, 1047, 1319], 'triangle', 0.42, 0.1, 0.1),
     derrota: (t) => acorde(t, [392, 311, 247], 'sine', 0.5, 0.12, 0.2),
   };
@@ -9720,7 +9796,7 @@ function desenharEstaticoReflexo(c, s, t, j) {
       ilu1: ['', 'Crie Cópias: os Vigias atiram nelas em vez de em você.', 'Última onda: engane com a Ilusão, troque de pedra e ataque os distraídos.'],
       ilu2: ['Fique invisível e passe pelos Vigias. Atacar logo depois de aparecer causa Surpresa.', '', 'Última onda: cinco inimigos. Use tudo o que a Pedra da Ilusão sabe fazer.'],
       ilu3: ['Cenários Falsos atraem os inimigos e bloqueiam o caminho deles.', '', 'Última onda. Algo se move no escuro…'],
-      ilu4: ['As páginas novas da Ilusão (Tab ou o botão de página) guardam as habilidades avançadas.', '', 'Última onda da Fase 2. O Distorcedor está esperando.'],
+      ilu4: ['As habilidades avançadas da Ilusão aparecem na mesma tela, conforme despertam.', '', 'Última onda da Fase 2. O Distorcedor está esperando.'],
     }[this.etapa];
     if (msgs && msgs[n] && !Hud.tAviso) Hud.aviso(msgs[n], false);
   };
@@ -12617,6 +12693,1671 @@ const FLAG_CHEFE = { ilusionista: 'ilusionistaR', reflexo: 'reflexo', pesadelo: 
   };
 }
 
+/* ========== 24. EXPANSÃO 0.9 · AS RELÍQUIAS E O ALTAR DA CONVERGÊNCIA ==========
+   24a. RELÍQUIAS QUE FALTAVAM (Ônix, Vésper, Soberano, Guardião)
+   24b. A CONVERGÊNCIA DAS RELÍQUIAS (requisitos, estado salvo, missão)
+   24c. O ALTAR NO VAZIO (região, peças, interação, cerimônia)
+   24d. TELAS (missão, altar, Galeria e pausa) */
+CONFIG.versao = '0.9.0';
+
+/* ---------- 24a. RELÍQUIAS QUE FALTAVAM ---------- */
+ARTEFATOS.push(
+  { id: 'lascaOnix', nome: 'Lasca de Ônix', chefe: 'onix', origem: 'Ônix · Ato 2', cor: '#B8A6E0', cor2: '#16121E',
+    desc: 'Um pedaço da armadura do guardião das ruínas. Fria ao toque, mas esquenta quando a Ametista está por perto.',
+    icone: '<path d="M8 3l8 2 4 8-6 8-8-3-2-8z"/><path d="M8 3l2 9 4 9M10 12l10 1"/>' },
+  { id: 'fioEco', nome: 'Fio de Eco', chefe: 'vesper', origem: 'Vésper · Ato 4', cor: '#E6C8FF', cor2: '#2A1840',
+    desc: 'O fio prateado com que Vésper tecia os ecos. Repete baixinho a última palavra dita perto dele.',
+    icone: '<ellipse cx="12" cy="12" rx="5" ry="7"/><path d="M7 9c3 1 7 1 10 0M7 12c3 1 7 1 10 0M7 15c3 1 7 1 10 0M17 12c2 2 3 5 2 8"/>' },
+  { id: 'seloRuinas', nome: 'Selo das Ruínas', chefe: 'soberano', origem: 'O Soberano · Ato 5', cor: '#FFC870', cor2: '#3A2410',
+    desc: 'O selo com que o Soberano mandava nas ruínas. Agora não obedece a ninguém: só pulsa quando você passa.',
+    icone: '<circle cx="12" cy="12" r="8"/><path d="M7 14l2-5 3 3 3-3 2 5z"/><path d="M12 4v2M12 18v2"/>' },
+  { id: 'olhoSentinela', nome: 'Olho da Sentinela', chefe: 'guardiao', origem: 'Guardião do Vazio · Ato 8', cor: '#7FD6FF', cor2: '#0E2236',
+    desc: 'A gema com que o Guardião vigiava a passagem entre os mundos. Ainda pisca, como se esperasse ordens.',
+    icone: '<path d="M12 2.5l6 9.5-6 9.5-6-9.5z"/><circle cx="12" cy="12" r="2.6"/>' },
+);
+Object.assign(HISTORIA_CHEFE, {
+  onix: 'Da armadura partida de Ônix sobrou uma lasca escura. Quando você a toca, a Ametista responde com um brilho que você nunca tinha visto.',
+  vesper: 'Vésper sumiu, mas deixou um fio prateado. Encostado no ouvido, ele sussurra uma palavra que você ainda não entende: “convergência”.',
+});
+{
+  const desOrig = Artefatos.desenhar;
+  const NOVAS = ['lascaOnix', 'fioEco', 'seloRuinas', 'olhoSentinela'];
+  Artefatos.desenhar = function (c, a, x, y, t, dono) {
+    if (!dono || !NOVAS.includes(a.id)) { desOrig.call(this, c, a, x, y, t, dono); return; }
+    c.save(); c.translate(x, y + Math.sin(t * 2 + x) * 3); c.rotate(Math.sin(t * 1.3 + x) * 0.25);
+    c.fillStyle = a.cor; c.strokeStyle = a.cor2; c.lineWidth = 1.2; c.shadowColor = a.cor; c.shadowBlur = 12;
+    if (a.id === 'lascaOnix') { c.fillStyle = '#2A2238'; c.beginPath(); c.moveTo(-5, -10); c.lineTo(6, -7); c.lineTo(9, 3); c.lineTo(2, 10); c.lineTo(-7, 6); c.lineTo(-9, -3); c.closePath(); c.fill(); c.strokeStyle = a.cor; c.stroke(); c.beginPath(); c.moveTo(-5, -10); c.lineTo(-1, 1); c.lineTo(2, 10); c.stroke(); }
+    else if (a.id === 'fioEco') { c.beginPath(); c.ellipse(0, 0, 6, 9, 0, 0, Math.PI * 2); c.fill(); c.stroke(); c.strokeStyle = '#FFFFFF'; for (const dy of [-4, 0, 4]) { c.beginPath(); c.moveTo(-6, dy); c.quadraticCurveTo(0, dy + 2, 6, dy); c.stroke(); } c.beginPath(); c.moveTo(6, 0); c.quadraticCurveTo(11, 4, 9, 10); c.stroke(); }
+    else if (a.id === 'seloRuinas') { circulo(c, 0, 0, 9); c.fill(); c.stroke(); c.fillStyle = a.cor2; c.beginPath(); c.moveTo(-5, 3); c.lineTo(-3, -3); c.lineTo(0, 0); c.lineTo(3, -3); c.lineTo(5, 3); c.closePath(); c.fill(); }
+    else { c.beginPath(); c.moveTo(0, -11); c.lineTo(7, 0); c.lineTo(0, 11); c.lineTo(-7, 0); c.closePath(); c.fill(); c.stroke(); c.fillStyle = '#0E2236'; circulo(c, 0, 0, 3); c.fill(); c.fillStyle = '#FFFFFF'; circulo(c, 0, 0, 1.2); c.fill(); }
+    c.restore();
+  };
+  // o Soberano e o Guardião têm cartões de vitória próprios: a relíquia aparece no anúncio
+  const anunciarNovas = (novos) => novos.forEach((a, k) => setTimeout(() => { Hud.anunciar('Relíquia conquistada', a.nome, a.desc, '', 3); Som.tocar('evolucao'); vibrar([30, 40, 60]); }, 900 + k * 3200));
+  const sobOrig = Fluxo.recompensaSoberano, guaOrig = Fluxo.recompensaGuardiao;
+  Fluxo.recompensaSoberano = function (e) { sobOrig.call(this, e); anunciarNovas(Artefatos.verificar()); };
+  Fluxo.recompensaGuardiao = function (e) { guaOrig.call(this, e); anunciarNovas(Artefatos.verificar()); };
+}
+
+/* ---------- 24b. A CONVERGÊNCIA DAS RELÍQUIAS ---------- */
+// os chefes de cada conjunto, na ordem da história (a flag diz se já foi vencido)
+const CHEFES_CONVERGENCIA = [
+  { conjunto: 'Ametista', tipo: 'onix', flag: 'onix', nome: 'Ônix' },
+  { conjunto: 'Ametista', tipo: 'vesper', flag: 'vesper', nome: 'Vésper' },
+  { conjunto: 'Ametista', tipo: 'soberano', flag: 'soberano', nome: 'O Soberano' },
+  { conjunto: 'Ametista', tipo: 'ilusionista', flag: 'ilusionista', nome: 'O Ilusionista' },
+  { conjunto: 'Ametista', tipo: 'tempestade', flag: 'tempestade', nome: 'Tempestade' },
+  { conjunto: 'Ametista', tipo: 'colosso', flag: 'colosso', nome: 'Colosso' },
+  { conjunto: 'Ametista', tipo: 'guardiao', flag: 'guardiao', nome: 'Guardião do Vazio' },
+  { conjunto: 'Ametista', tipo: 'devorador', flag: 'devorador', nome: 'Devorador de Dimensões' },
+  { conjunto: 'Ilusão', tipo: 'ilusionista', flag: 'ilusionistaR', nome: 'O Ilusionista (revanche)' },
+  { conjunto: 'Ilusão', tipo: 'reflexo', flag: 'reflexo', nome: 'O Reflexo' },
+  { conjunto: 'Ilusão', tipo: 'pesadelo', flag: 'pesadelo', nome: 'O Pesadelo' },
+  { conjunto: 'Ilusão', tipo: 'distorcedor', flag: 'distorcedor', nome: 'O Distorcedor' },
+];
+const ALTAR = { x: 430, y: 450, r: 140 };
+const Convergencia = {
+  ativa: false, prox: 0, tempo: 0, avisoT: 0, entrouAltar: false,
+  padrao() { return { liberada: false, avisada: false, armazenadas: [], carregada: null, colocada: false, concluida: false, pedestal: 'dormente', joia: null, liberadaEm: null, concluidaEm: null }; },
+  dados() {
+    const P = Perfil.dados;
+    if (!P) return this.padrao();
+    if (!P.convergencia || typeof P.convergencia !== 'object') P.convergencia = this.padrao();
+    return P.convergencia;
+  },
+  // relíquias exigidas: a de cada chefe dos dois conjuntos, sem repetir, na ordem da história
+  reliquias() {
+    const out = [];
+    for (const c of CHEFES_CONVERGENCIA) { const a = Artefatos.doChefe(c.tipo); if (a && !out.includes(a)) out.push(a); }
+    return out;
+  },
+  // a última relíquia: a do último chefe da Ilusão
+  ultima() { const ult = CHEFES_CONVERGENCIA.filter((c) => c.conjunto === 'Ilusão').pop(); return Artefatos.doChefe(ult.tipo); },
+  chefesFaltando() { const c = Perfil.dados ? Perfil.dados.campanha : {}; return CHEFES_CONVERGENCIA.filter((x) => !c[x.flag]); },
+  reliquiasFaltando() { return this.reliquias().filter((a) => !Artefatos.tem(a.id)); },
+  completo() { return !this.chefesFaltando().length && !this.reliquiasFaltando().length; },
+  status(a) {
+    const d = this.dados(), u = this.ultima();
+    if (!Artefatos.tem(a.id)) return 'falta';
+    if (a === u) return d.colocada ? 'colocada' : 'carregada';
+    return 'armazenada';
+  },
+  noAltar() { const d = this.dados(); return d.armazenadas.length + (d.colocada ? 1 : 0); },
+  // guarda no altar as relíquias já conquistadas; a última fica com você até a colocação
+  sincronizar() {
+    const d = this.dados(), u = this.ultima();
+    const arm = this.reliquias().filter((a) => a !== u && Artefatos.tem(a.id)).map((a) => a.id);
+    const carregada = u && Artefatos.tem(u.id) && !d.colocada ? u.id : null;
+    let mudou = arm.join() !== d.armazenadas.join() || carregada !== d.carregada;
+    d.armazenadas = arm; d.carregada = carregada;
+    if (d.colocada && u && !Artefatos.tem(u.id)) { d.colocada = false; mudou = true; }
+    return mudou;
+  },
+  verificar() {
+    if (!Perfil.dados) return false;
+    const d = this.dados();
+    let mudou = this.sincronizar(), novo = false;
+    if (!d.liberada && this.completo()) { d.liberada = true; d.liberadaEm = Date.now(); mudou = true; novo = true; }
+    if (mudou) Perfil.gravar();
+    return novo;
+  },
+  // mostra o desbloqueio assim que o jogo estiver tranquilo
+  tique(dt) {
+    const d = this.dados();
+    if (!d.liberada || d.avisada) { this.prox = 0; return; }
+    // nunca no meio do fim de um ato (chefe vencido, recompensa e transição ainda por vir)
+    const fimDeAto = !!(CHEFE_DO_ATO[Fluxo.etapa] && Fluxo.chefeIluVencido) || !!Fluxo.proxEtapa;
+    const calmo = Fluxo.estado === 'jogando' && !fimDeAto && !this.mostrando && !Cena.atual && !Vazio.transicao && !Vazio.cartaoAberto && (Fluxo.finalPendente || 0) <= 0 && (Fluxo.missaoPendente || 0) <= 0 && (Fluxo.transicao || 0) <= 0 && document.getElementById('camada').hidden;
+    this.prox = calmo ? this.prox + dt : 0;
+    if (this.prox > 1.2) { this.prox = 0; this.mostrarDesbloqueio(); }
+  },
+  mostrarDesbloqueio() {
+    const d = this.dados();
+    this.mostrando = true;
+    Fluxo.estado = 'pausa'; Entrada.limpar(); Hud.esconderAviso();
+    Som.tocar('convergencia'); vibrar([40, 60, 40, 60, 120]);
+    // só conta como vista quando o jogador aceita (se outra tela a cobrir, ela volta depois)
+    Telas.missaoConvergencia(true, () => { this.mostrando = false; d.avisada = true; Perfil.gravar(); Telas.fechar(); if (Fluxo.estado === 'pausa') Fluxo.estado = 'jogando'; });
+    const cam = document.getElementById('camada');
+    const vigia = setInterval(() => { if (!this.mostrando) { clearInterval(vigia); return; } if (cam.hidden || !cam.querySelector('#b-conv-ok')) { this.mostrando = false; clearInterval(vigia); } }, 500);
+  },
+  rotulo() {
+    const d = this.dados();
+    if (this.ativa) return '';
+    if (!d.liberada) return 'Examinar o Altar';
+    if (d.concluida) return 'Altar da Convergência';
+    if (d.colocada) return 'Iniciar a Convergência';
+    if (d.carregada) return 'Colocar última relíquia';
+    return 'Examinar o Altar';
+  },
+  interagir() {
+    if (this.ativa) return;
+    Vazio.abrirCartao(() => Telas.altar());
+  },
+  // confirmação: só agora a relíquia sai das suas mãos
+  colocar() {
+    const d = this.dados(), u = this.ultima();
+    if (this.ativa || !d.liberada || d.colocada || d.concluida || !u || !Artefatos.tem(u.id) || d.carregada !== u.id) return false;
+    d.colocada = true; d.carregada = null; Perfil.gravar();
+    Vazio.fecharCartao();
+    const falta = this.reliquiasFaltando().concat(this.reliquias().filter((a) => a !== u && Artefatos.tem(a.id) && !d.armazenadas.includes(a.id)));
+    if (falta.length) {
+      Som.tocar('bloqueado');
+      Hud.aviso(`A ${u.nome} está no altar, mas ainda faltam: ${falta.map((a) => `${a.nome} (${a.origem})`).join(', ')}.`, false); Hud.tAviso = 7;
+      return true;
+    }
+    this.iniciarCerimonia(true);
+    return true;
+  },
+  iniciarCerimonia(voo) {
+    const d = this.dados();
+    if (this.ativa || d.concluida || !d.colocada || !this.completo() || Cena.atual || !Vazio.ativo) return false;
+    this.ativa = true;
+    Vazio.fecharCartao();
+    const j = Jogo.jogador;
+    Cena.iniciar('convergencia', { voo: !!voo, de: { x: j.x, y: j.y } });
+    return true;
+  },
+  concluir() {
+    const d = this.dados();
+    d.concluida = true; d.pedestal = 'energizado'; d.joia = 'adormecida'; d.concluidaEm = Date.now();
+    Perfil.gravar();
+    this.ativa = false;
+  },
+  // posições no altar: dez espaços em anel (aberto a leste, de onde vem a ponte) e o encaixe central para a última
+  espacos() {
+    if (this._esp) return this._esp;
+    const u = this.ultima(), lista = this.reliquias().filter((a) => a !== u), n = lista.length;
+    const esp = lista.map((a, k) => { const ang = (30 + (k * 300) / Math.max(1, n - 1)) * (Math.PI / 180); return { a, idx: k, x: ALTAR.x + Math.cos(ang) * 105, y: ALTAR.y + Math.sin(ang) * 86 }; });
+    esp.push({ a: u, idx: n, x: ALTAR.x, y: ALTAR.y + 6, centro: true });
+    return (this._esp = esp);
+  },
+};
+{
+  const verOrig = Artefatos.verificar;
+  Artefatos.verificar = function () { const novos = verOrig.call(this); Convergencia.verificar(); return novos; };
+  const padraoOrig = Perfil.padrao;
+  Perfil.padrao = function () { const p = padraoOrig.call(this); p.convergencia = Convergencia.padrao(); return p; };
+  const carregarOrig = Perfil.carregar;
+  Perfil.carregar = function () { carregarOrig.call(this); Convergencia.dados(); Convergencia.verificar(); };
+  const novoOrig = Perfil.novoJogo;
+  Perfil.novoJogo = function () { novoOrig.call(this); this.dados.convergencia = Convergencia.padrao(); Convergencia.ativa = false; };
+  // a Fase 2 termina dando a última relíquia: a missão pode ter acabado de abrir
+  const recIluOrig = Fluxo.recompensaChefeIlu;
+  Fluxo.recompensaChefeIlu = function (e) { recIluOrig.call(this, e); Convergencia.verificar(); };
+}
+
+/* ---------- 24c. O ALTAR NO VAZIO ---------- */
+Vazio.REGIOES.push({ id: 'altar', nome: 'Altar da Convergência', x: ALTAR.x, y: ALTAR.y, r: ALTAR.r, de: 'camara', req: () => !!(Perfil.dados && Perfil.dados.campanha.devorador), reqTxt: 'desperta depois que o Devorador recua' });
+Vazio.ESTACOES.push({ id: 'altar', regiao: 'altar', x: ALTAR.x, y: ALTAR.y, rotulo: () => Convergencia.rotulo(), acao: () => Convergencia.interagir() });
+{
+  const montarOrig = Vazio.montarCenario;
+  Vazio.montarCenario = function () {
+    montarOrig.call(this);
+    // o altar tem cristais próprios (flutuantes); a estação genérica não é desenhada aqui
+    for (let i = Mundo.estaticos.length - 1; i >= 0; i--) { const s = Mundo.estaticos[i]; if (Math.hypot(s.x - ALTAR.x, s.y - ALTAR.y) < ALTAR.r && (s.tipo === 'cristalVazio' || s.tipo === undefined)) Mundo.estaticos.splice(i, 1); }
+    // Galeria: com 11 relíquias o anel de pedestais fecharia a passagem; agora ele deixa uma entrada ao norte, voltada para a ponte do Santuário
+    const g = this.regiao('galeria'), peds = Mundo.estaticos.filter((x) => x.tipo === 'pedestalArtefato'), n = peds.length;
+    if (n > 7) peds.forEach((p) => { const ang = (-60 + (p.idx * 300) / (n - 1)) * (Math.PI / 180); p.x = g.x + Math.cos(ang) * 80; p.y = g.y + Math.sin(ang) * 72; });
+    if (!this.liberada(this.regiao('altar'))) return;
+    Mundo.estaticos.push({ classe: 'estatico', tipo: 'altarArco', x: ALTAR.x, y: ALTAR.y - 112, raio: 30 });
+    for (const e of Convergencia.espacos()) Mundo.estaticos.push({ classe: 'estatico', tipo: e.centro ? 'altarCentro' : 'altarNicho', idx: e.idx, x: e.x, y: e.centro ? ALTAR.y : e.y, raio: e.centro ? 26 : 12 });
+  };
+  const sincOrig = Vazio.montar;
+  Vazio.montar = function () { Convergencia.verificar(); Convergencia.entrouAltar = false; sincOrig.call(this); };
+  const aposOrig = Vazio.aposEntrar;
+  Vazio.aposEntrar = function () {
+    aposOrig.call(this);
+    const d = Convergencia.dados();
+    if (d.liberada && !d.concluida && this.liberada(this.regiao('altar'))) setTimeout(() => {
+      if (!this.ativo || Cena.atual) return;
+      const u = Convergencia.ultima();
+      Hud.aviso(d.colocada ? 'As relíquias esperam no Altar da Convergência: siga a ponte a oeste da Câmara de Evolução e inicie a cerimônia.' : `Missão: leve a ${u.nome} ao Altar da Convergência. Siga a ponte a oeste da Câmara de Evolução.`, false); Hud.tAviso = 6;
+    }, 2600);
+  };
+  const atuOrig = Vazio.atualizar;
+  Vazio.atualizar = function (dt) {
+    atuOrig.call(this, dt);
+    Convergencia.tique(dt);
+    if (!this.ativo) return;
+    const j = Jogo.jogador, dd = Math.hypot(j.x - ALTAR.x, j.y - ALTAR.y), alvo = clamp(1 - (dd - 60) / 260, 0, 1);
+    Convergencia.perto = lerp(Convergencia.perto || 0, alvo, 1 - Math.exp(-3 * dt));
+    if (dd < ALTAR.r && this.pronta(this.regiao('altar')) && !Convergencia.entrouAltar) {
+      Convergencia.entrouAltar = true;
+      const d = Convergencia.dados();
+      Hud.anunciar('Vazio', 'Altar da Convergência', d.concluida ? 'O pedestal central pulsa, esperando.' : d.liberada ? 'As relíquias reconhecem você.' : 'Um lugar antigo, mais velho que o próprio Vazio.', '', 2.4);
+      Som.tocar('expansao');
+    }
+    // partículas do altar
+    if (Convergencia.perto > 0.05 && Math.random() < dt * (8 + Convergencia.perto * 20)) {
+      const a = Math.random() * Math.PI * 2, r = 40 + Math.random() * 110;
+      Efeitos.particula(ALTAR.x + Math.cos(a) * r, ALTAR.y + Math.sin(a) * r * 0.8, 4, { vx: 0, vy: 0, vz: 40 + Math.random() * 50, cor: Math.random() < 0.5 ? '#B58CFF' : '#8FD8FF', vida: 1.4, tam: 1.8, aditivo: true, forma: 'cristal' });
+    }
+  };
+  const textoOrig = Vazio.textoHud;
+  Vazio.textoHud = function () {
+    const base = textoOrig.call(this), d = Convergencia.dados();
+    if (this.treino || !d.liberada || d.concluida) return base;
+    return `${base} · Convergência ${Convergencia.noAltar()}/${Convergencia.reliquias().length}`;
+  };
+  // piso do altar: runas antigas em violeta e azul
+  const pisoOrig = Vazio.desenharPiso;
+  Vazio.desenharPiso = function (c, t, r, x, y, R) {
+    if (r.id !== 'altar') { pisoOrig.call(this, c, t, r, x, y, R); return; }
+    const K = CONFIG.K, p = Convergencia.perto || 0, d = Convergencia.dados(), forte = d.concluida ? 1 : d.liberada ? 0.7 : 0.4;
+    c.save(); c.translate(x, y); c.scale(1, K);
+    const g = c.createRadialGradient(0, 0, 10, 0, 0, R * 0.95); g.addColorStop(0, `rgba(150,110,255,${(0.18 + p * 0.2 * forte).toFixed(3)})`); g.addColorStop(0.6, `rgba(90,170,255,${(0.08 + p * 0.1).toFixed(3)})`); g.addColorStop(1, 'rgba(90,170,255,0)');
+    c.fillStyle = g; circulo(c, 0, 0, R * 0.95); c.fill();
+    const pul = 0.35 + Math.sin(t * 1.6) * 0.12 + p * 0.3 * forte;
+    c.lineWidth = 2;
+    for (const [rr0, cor, giro] of [[128, '150,110,255', 0.05], [98, '120,190,255', -0.08], [52, '200,170,255', 0.12]]) {
+      c.save(); c.rotate(t * giro); c.strokeStyle = `rgba(${cor},${pul.toFixed(3)})`; c.setLineDash(rr0 === 98 ? [4, 10] : []); circulo(c, 0, 0, rr0); c.stroke(); c.setLineDash([]);
+      if (rr0 === 128) for (let k = 0; k < 16; k++) { const a = (k / 16) * Math.PI * 2; c.save(); c.translate(Math.cos(a) * 118, Math.sin(a) * 118); c.rotate(a + Math.PI / 2); c.strokeStyle = `rgba(${cor},${(pul * 0.9).toFixed(3)})`; c.lineWidth = 1.4; c.beginPath(); c.moveTo(-4, -3); c.lineTo(0, 4); c.lineTo(4, -3); c.moveTo(0, -5); c.lineTo(0, 1); c.stroke(); c.restore(); }
+      c.restore();
+    }
+    // linhas que ligam cada espaço ao centro
+    c.strokeStyle = `rgba(160,140,255,${(0.12 + p * 0.25).toFixed(3)})`; c.lineWidth = 1;
+    for (const e of Convergencia.espacos()) if (!e.centro) { c.beginPath(); c.moveTo(0, 0); c.lineTo(e.x - ALTAR.x, e.y - ALTAR.y); c.stroke(); }
+    c.restore();
+  };
+  const estOrig = Vazio.desenharEstatico;
+  Vazio.desenharEstatico = function (c, s, t) {
+    if (s.tipo === 'altarArco') { desenharAltarArco(c, s, t); return; }
+    if (s.tipo === 'altarNicho' || s.tipo === 'altarCentro') { desenharAltarEspaco(c, s, t); return; }
+    estOrig.call(this, c, s, t);
+  };
+  const mundoOrig = Vazio.desenharMundo;
+  Vazio.desenharMundo = function (c, t, j) { mundoOrig.call(this, c, t, j); if (this.liberada(this.regiao('altar'))) desenharAltarLuz(c, t); desenharReliquiaCarregada(c, t, j); };
+  const extOrig = Ext.desenharMundo;
+  Ext.desenharMundo = function (c, t, j) { extOrig.call(this, c, t, j); if (!Vazio.ativo) desenharReliquiaCarregada(c, t, j); };
+  // se o jogo recomeçar no meio da cerimônia, nada se perde: a relíquia continua colocada e a cerimônia pode ser refeita
+  const abortarOrig = Vazio.abortar;
+  Vazio.abortar = function () { abortarOrig.call(this); if (Convergencia.ativa) { Convergencia.ativa = false; if (Cena.atual && Cena.atual.tipo === 'convergencia') Cena.terminar(); } };
+}
+function desenharAltarArco(c, s, t) {
+  const K = CONFIG.K, x = s.x, by = s.y * K, p = Convergencia.perto || 0, d = Convergencia.dados();
+  c.save(); c.lineWidth = 1.4; c.strokeStyle = 'rgba(8,6,16,0.9)';
+  // dois pilares antigos e o arco quebrado
+  for (const dx of [-62, 62]) {
+    const g = c.createLinearGradient(x + dx - 12, 0, x + dx + 12, 0); g.addColorStop(0, '#2A2048'); g.addColorStop(0.5, '#4A3A7E'); g.addColorStop(1, '#221A3C');
+    c.fillStyle = g; c.fillRect(x + dx - 12, by - 118, 24, 118); c.strokeRect(x + dx - 12, by - 118, 24, 118);
+    c.fillStyle = '#3A2E64'; c.fillRect(x + dx - 16, by - 124, 32, 8); c.strokeRect(x + dx - 16, by - 124, 32, 8);
+    c.strokeStyle = `rgba(150,200,255,${(0.35 + p * 0.5 + Math.sin(t * 2 + dx) * 0.1).toFixed(3)})`; c.lineWidth = 1.5;
+    for (let k = 0; k < 4; k++) { const yy = by - 100 + k * 22; c.beginPath(); c.moveTo(x + dx - 5, yy); c.lineTo(x + dx, yy + 6); c.lineTo(x + dx + 5, yy); c.stroke(); }
+    c.strokeStyle = 'rgba(8,6,16,0.9)'; c.lineWidth = 1.4;
+  }
+  c.fillStyle = '#33295A'; c.beginPath(); c.moveTo(x - 78, by - 124); c.quadraticCurveTo(x, by - 190, x + 50, by - 140); c.lineTo(x + 58, by - 124); c.quadraticCurveTo(x, by - 166, x - 62, by - 124); c.closePath(); c.fill(); c.stroke();
+  // o pedaço que falta no arco, suspenso no ar
+  const fl = Math.sin(t * 1.4) * 4;
+  c.beginPath(); c.moveTo(x + 56, by - 146 + fl); c.lineTo(x + 76, by - 132 + fl); c.lineTo(x + 70, by - 122 + fl); c.lineTo(x + 54, by - 132 + fl); c.closePath(); c.fill(); c.stroke();
+  // o véu de energia dentro do arco
+  c.globalCompositeOperation = 'lighter';
+  const forte = d.concluida ? 1 : d.liberada ? 0.75 : 0.35;
+  const g = c.createLinearGradient(x, by - 160, x, by); g.addColorStop(0, `rgba(170,120,255,${(0.35 * forte + p * 0.2).toFixed(3)})`); g.addColorStop(1, 'rgba(90,180,255,0)');
+  c.fillStyle = g; c.beginPath(); c.moveTo(x - 50, by); c.lineTo(x - 50, by - 118); c.quadraticCurveTo(x, by - 160, x + 50, by - 118); c.lineTo(x + 50, by); c.closePath(); c.fill();
+  for (let k = 0; k < 3; k++) { const yy = by - ((t * 30 + k * 40) % 120); c.fillStyle = `rgba(200,230,255,${(0.25 * forte).toFixed(3)})`; c.fillRect(x - 40, yy, 80, 1.5); }
+  c.restore();
+}
+function desenharAltarEspaco(c, s, t) {
+  const K = CONFIG.K, x = s.x, by = s.y * K, e = Convergencia.espacos()[s.idx], a = e.a, d = Convergencia.dados(), st = Convergencia.status(a);
+  const cer = Cena.atual && Cena.atual.tipo === 'convergencia' ? Cena.atual : null, p = Convergencia.perto || 0;
+  c.save(); c.lineWidth = 1.3; c.strokeStyle = 'rgba(8,6,16,0.9)';
+  if (e.centro) {
+    // pedestal central em três degraus, com o encaixe reservado na frente
+    c.fillStyle = '#231A40'; elipse(c, x, by, 34, 13); c.fill(); c.stroke();
+    c.fillStyle = '#2E2452'; c.fillRect(x - 26, by - 18, 52, 18); c.strokeRect(x - 26, by - 18, 52, 18);
+    c.fillStyle = '#3B2F68'; elipse(c, x, by - 18, 26, 9.5); c.fill(); c.stroke();
+    c.fillStyle = '#3A2E64'; c.fillRect(x - 16, by - 44, 32, 26); c.strokeRect(x - 16, by - 44, 32, 26);
+    c.fillStyle = '#4B3D80'; elipse(c, x, by - 44, 18, 6.5); c.fill(); c.stroke();
+    const vivo = d.concluida ? 1 : 0;
+    c.strokeStyle = vivo ? `rgba(200,240,255,${(0.7 + Math.sin(t * 3) * 0.25).toFixed(3)})` : `rgba(160,130,255,${(0.35 + p * 0.4).toFixed(3)})`; c.lineWidth = 1.6;
+    c.beginPath(); c.moveTo(x - 12, by - 30); c.lineTo(x, by - 38); c.lineTo(x + 12, by - 30); c.moveTo(x - 20, by - 9); c.lineTo(x + 20, by - 9); c.stroke();
+    // encaixe da última relíquia
+    const brilhoEnc = st === 'carregada' && d.liberada ? 0.5 + Math.sin(t * 5) * 0.4 : 0.25;
+    c.fillStyle = `rgba(20,12,40,0.9)`; elipse(c, x, by - 14, 8, 3.4); c.fill();
+    c.strokeStyle = `rgba(255,220,150,${brilhoEnc.toFixed(3)})`; c.lineWidth = 1.6; elipse(c, x, by - 14, 9, 4); c.stroke();
+    const mostrar = st === 'colocada' && !(cer && cer.t > 1.2 && cer.t < 13.6) && !(cer && cer.voo && cer.t <= 1.2);
+    if (mostrar) Artefatos.desenhar(c, a, x, by - 26, t, true);
+    if (d.concluida) desenharSemente(c, x, by - 92, t, 1);
+  } else {
+    // nicho: base de pedra antiga com moldura de cristal
+    c.fillStyle = '#2A2048'; c.fillRect(x - 10, by - 20, 20, 20); c.strokeRect(x - 10, by - 20, 20, 20);
+    c.fillStyle = '#3B2F68'; elipse(c, x, by - 20, 12, 4.6); c.fill(); c.stroke();
+    const tem = st === 'armazenada';
+    c.strokeStyle = tem ? corA(a.cor, 0.55 + p * 0.35) : 'rgba(150,140,190,0.3)'; c.lineWidth = 1.3;
+    c.beginPath(); c.moveTo(x - 9, by - 22); c.lineTo(x - 7, by - 48); c.lineTo(x, by - 56); c.lineTo(x + 7, by - 48); c.lineTo(x + 9, by - 22); c.stroke();
+    if (tem && !(cer && cer.t > 1.2 && cer.t < 13.6)) Artefatos.desenhar(c, a, x, by - 36, t, true);
+    else if (!tem) { c.fillStyle = 'rgba(190,180,230,0.4)'; c.font = '700 11px Sora, system-ui, sans-serif'; c.textAlign = 'center'; c.fillText('?', x, by - 32); }
+  }
+  c.restore();
+}
+// a luz que nasce no pedestal depois da cerimônia (ainda sem forma: a Parte 3 decide o que ela será)
+function desenharSemente(c, x, y, t, a) {
+  c.save(); c.globalCompositeOperation = 'lighter';
+  const r = 30 + Math.sin(t * 2.2) * 4;
+  const g = c.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, `rgba(255,255,255,${(0.9 * a).toFixed(3)})`); g.addColorStop(0.35, `rgba(200,225,255,${(0.5 * a).toFixed(3)})`); g.addColorStop(1, 'rgba(160,140,255,0)');
+  c.fillStyle = g; c.fillRect(x - r, y - r, r * 2, r * 2);
+  c.strokeStyle = `rgba(230,240,255,${(0.6 * a).toFixed(3)})`; c.lineWidth = 1.2;
+  for (let k = 0; k < 3; k++) { c.beginPath(); c.ellipse(x, y, 14 + k * 5, 5 + k * 2, t * (0.8 + k * 0.4) + k, 0, Math.PI * 2); c.stroke(); }
+  c.restore();
+}
+function desenharAltarLuz(c, t) {
+  const K = CONFIG.K, p = Convergencia.perto || 0, d = Convergencia.dados(), cer = Cena.atual && Cena.atual.tipo === 'convergencia' ? Cena.atual : null;
+  c.save(); c.globalCompositeOperation = 'lighter';
+  const forte = d.concluida ? 1 : d.liberada ? 0.7 : 0.4;
+  const luz = (x, y, r, cor, a) => { const g = c.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, cor.replace('A', a)); g.addColorStop(1, cor.replace('A', 0)); c.fillStyle = g; c.fillRect(x - r, y - r, r * 2, r * 2); };
+  // iluminação que pulsa e cresce quando você se aproxima
+  luz(ALTAR.x, ALTAR.y * K - 40, 150 + p * 60, 'rgba(150,110,255,A)', (0.12 + p * 0.18) * forte + Math.sin(t * 1.7) * 0.03);
+  luz(ALTAR.x, ALTAR.y * K - 140, 90, 'rgba(110,190,255,A)', 0.12 + p * 0.12);
+  for (const e of Convergencia.espacos()) if (!e.centro && Convergencia.status(e.a) === 'armazenada') luz(e.x, e.y * K - 36, 26 + p * 10, corA(e.a.cor, 'A'), 0.2 + p * 0.2);
+  // cristais flutuantes em órbita lenta
+  for (let k = 0; k < 7; k++) {
+    const a = (k / 7) * Math.PI * 2 + t * (0.12 + p * 0.1), r = 138 + Math.sin(t + k) * 6;
+    const x = ALTAR.x + Math.cos(a) * r, y = ALTAR.y * K + Math.sin(a) * r * K - 70 - Math.sin(t * 1.3 + k * 2) * 10 - p * 12;
+    c.save(); c.translate(x, y); c.rotate(Math.sin(t * 0.9 + k) * 0.3);
+    c.fillStyle = k % 2 ? 'rgba(150,200,255,0.55)' : 'rgba(190,150,255,0.55)';
+    c.beginPath(); c.moveTo(0, -11); c.lineTo(5, 0); c.lineTo(0, 13); c.lineTo(-5, 0); c.closePath(); c.fill();
+    c.restore();
+  }
+  if (d.concluida && !cer) luz(ALTAR.x, ALTAR.y * K - 92, 90, 'rgba(200,230,255,A)', 0.25 + Math.sin(t * 2.2) * 0.08);
+  c.restore();
+  if (cer) desenharCerimonia(c, t, cer);
+}
+function corA(cor, a) { const n = parseInt(cor.slice(1), 16); return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`; }
+// a última relíquia acompanha você enquanto não chega ao altar
+function desenharReliquiaCarregada(c, t, j) {
+  const d = Convergencia.dados();
+  if (!d.carregada || !d.liberada || !j || j.morto || (Cena.atual && Cena.atual.tipo === 'convergencia')) return;
+  const a = ARTEFATOS.find((x) => x.id === d.carregada);
+  if (!a) return;
+  const K = CONFIG.K, ang = t * 1.6, x = j.x + Math.cos(ang) * 22, y = j.y * K - 58 + Math.sin(ang) * 6 - (j.z || 0);
+  c.save(); c.globalAlpha = 0.95 * (1 - (j.fadeVazio || 0));
+  c.save(); c.globalCompositeOperation = 'lighter'; const g = c.createRadialGradient(x, y, 0, x, y, 18); g.addColorStop(0, corA(a.cor, 0.5)); g.addColorStop(1, corA(a.cor, 0)); c.fillStyle = g; c.fillRect(x - 18, y - 18, 36, 36); c.restore();
+  c.translate(x, y); c.scale(0.7, 0.7); Artefatos.desenhar(c, a, 0, 0, t, true);
+  c.restore();
+}
+
+// ---- a cerimônia ----
+const CERIMONIA = { voo: 1.2, sobe: 3.0, energia: 5.0, gira: 8.5, brilho: 9.5, onda: 10.5, joia: 13.0, clarao: 13.6, fim: 17.5 };
+function posCerimonia(e, c, t) {
+  const C = CERIMONIA, K = CONFIG.K, ct = c.t;
+  const base = { x: e.x, y: e.y * K - 36 };
+  const sobe = clamp((ct - C.voo) / (C.sobe - C.voo), 0, 1), alto = 48 * (1 - (1 - sobe) ** 2);
+  if (ct < C.energia) return { x: base.x, y: base.y - alto };
+  const ang0 = Math.atan2(e.y - ALTAR.y, e.x - ALTAR.x), raio0 = Math.hypot(e.x - ALTAR.x, (e.y - ALTAR.y));
+  const g = clamp((ct - C.energia) / (C.onda - C.energia), 0, 1), giro = (ct - C.energia) ** 1.6 * 0.9;
+  const R = lerp(raio0, 42, g * g);
+  if (ct < C.clarao) return { x: ALTAR.x + Math.cos(ang0 + giro) * R, y: ALTAR.y * K - 84 + Math.sin(ang0 + giro) * R * K - alto * (1 - g) };
+  const volta = clamp((ct - C.clarao) / 1.4, 0, 1);
+  return { x: lerp(ALTAR.x + Math.cos(ang0 + giro) * R, base.x, volta), y: lerp(ALTAR.y * K - 84, base.y, volta) };
+}
+function desenharCerimonia(c, t, cer) {
+  const C = CERIMONIA, K = CONFIG.K, ct = cer.t, cx = ALTAR.x, cy = ALTAR.y * K - 92, esp = Convergencia.espacos();
+  c.save();
+  // a última relíquia viaja das suas mãos até o encaixe
+  if (cer.voo && ct < C.voo) {
+    const u = esp[esp.length - 1], f = clamp(ct / C.voo, 0, 1), fe = f * f * (3 - 2 * f);
+    const x = lerp(cer.de.x, u.x, fe), y = lerp(cer.de.y * K - 60, u.y * K - 26, fe) - Math.sin(f * Math.PI) * 60;
+    Artefatos.desenhar(c, u.a, x, y, t, true);
+    c.globalCompositeOperation = 'lighter'; c.fillStyle = corA(u.a.cor, 0.5); circulo(c, x, y, 10); c.fill(); c.globalCompositeOperation = 'source-over';
+  }
+  if (ct >= C.voo && ct < C.clarao + 1.4) {
+    const pos = esp.map((e) => posCerimonia(e, cer, t));
+    c.save(); c.globalCompositeOperation = 'lighter';
+    // cada relíquia emite sua própria energia até o centro
+    if (ct > C.sobe) esp.forEach((e, k) => {
+      const ini = C.sobe + k * 0.16; if (ct < ini) return;
+      const a = clamp((ct - ini) / 0.5, 0, 1) * (ct > C.clarao ? clamp(1 - (ct - C.clarao) / 0.6, 0, 1) : 1), p = pos[k];
+      c.strokeStyle = corA(e.a.cor, 0.55 * a); c.lineWidth = 2.5 + Math.sin(t * 9 + k) * 1;
+      c.beginPath(); c.moveTo(p.x, p.y); c.quadraticCurveTo((p.x + cx) / 2 + Math.sin(t * 2 + k) * 30, (p.y + cy) / 2 - 30, cx, cy); c.stroke();
+      const g = c.createRadialGradient(p.x, p.y, 0, p.x, p.y, 22); g.addColorStop(0, corA(e.a.cor, 0.7 * a)); g.addColorStop(1, corA(e.a.cor, 0)); c.fillStyle = g; c.fillRect(p.x - 22, p.y - 22, 44, 44);
+    });
+    // o altar brilha cada vez mais
+    const br = clamp((ct - C.gira) / (C.joia - C.gira), 0, 1);
+    if (br > 0) { const r = 60 + br * 140; const g = c.createRadialGradient(cx, cy, 0, cx, cy, r); g.addColorStop(0, `rgba(255,255,255,${(0.6 * br).toFixed(3)})`); g.addColorStop(0.4, `rgba(180,160,255,${(0.35 * br).toFixed(3)})`); g.addColorStop(1, 'rgba(110,190,255,0)'); c.fillStyle = g; c.fillRect(cx - r, cy - r, r * 2, r * 2); }
+    // a nova joia se forma a partir da energia reunida
+    if (ct > C.onda && ct < C.clarao + 0.3) {
+      const f = clamp((ct - C.onda) / (C.joia - C.onda), 0, 1), h = 8 + f * 26;
+      c.fillStyle = `rgba(235,245,255,${(0.35 + f * 0.55).toFixed(3)})`; c.strokeStyle = `rgba(255,255,255,${(0.5 + f * 0.5).toFixed(3)})`; c.lineWidth = 1.5;
+      c.save(); c.translate(cx, cy); c.rotate(t * (1 + f * 3));
+      c.beginPath(); c.moveTo(0, -h); c.lineTo(h * 0.55, 0); c.lineTo(0, h); c.lineTo(-h * 0.55, 0); c.closePath(); c.fill(); c.stroke();
+      c.restore();
+      for (let k = 0; k < 10; k++) { const a = t * 3 + k * 0.63, r = 70 * (1 - f) + 10; c.fillStyle = 'rgba(220,235,255,0.7)'; circulo(c, cx + Math.cos(a) * r, cy + Math.sin(a) * r * 0.6, 1.8); c.fill(); }
+    }
+    c.restore();
+    esp.forEach((e, k) => { const p = pos[k]; Artefatos.desenhar(c, e.a, p.x, p.y, t, true); });
+  }
+  c.restore();
+}
+{
+  const cenaOrig = Cena.atualizar;
+  Cena.atualizar = function (dt) {
+    const c = this.atual;
+    if (!c || c.tipo !== 'convergencia') { cenaOrig.call(this, dt); return; }
+    const C = CERIMONIA;
+    c.t += dt;
+    Jogo.camAlvo = { x: ALTAR.x, y: ALTAR.y - 50 }; Jogo.camZoomAlvo = c.t < C.gira ? 1.25 : 1.45;
+    this.uma(c, 'inicio', 0.05, () => { Som.tocar('materializar'); if (c.voo) Hud.anunciar('', 'A última relíquia', `A ${Convergencia.ultima().nome} encontra o seu lugar.`, '', 1.4); });
+    this.uma(c, 'encaixe', C.voo, () => { Som.tocar('reliquia'); Jogo.flashTela = Math.max(Jogo.flashTela, 0.3); Efeitos.faiscas(ALTAR.x, ALTAR.y, 30, 16, '#FFE6A6'); });
+    this.uma(c, 'titulo', C.voo + 0.3, () => Hud.anunciar('Cerimônia', 'A Convergência das Relíquias', 'As relíquias despertam juntas.', 'chefe-intro', 2.6));
+    Convergencia.espacos().forEach((e, k) => this.uma(c, 'en' + k, C.sobe + k * 0.16, () => Som.tocar('reliquia')));
+    this.uma(c, 'gira', C.energia, () => Som.tocar('convergencia'));
+    this.uma(c, 'brilho', C.brilho, () => { Jogo.flashTela = Math.max(Jogo.flashTela, 0.4); vibrar([30, 30, 30]); });
+    this.uma(c, 'onda', C.onda, () => {
+      Jogo.ondasFx.push({ x: ALTAR.x, y: ALTAR.y, dir: { x: 1, y: 0 }, alcance: 420, abertura: Math.PI, t: 0, cor: '180,160,255' });
+      Jogo.ondasFx.push({ x: ALTAR.x, y: ALTAR.y, dir: { x: 1, y: 0 }, alcance: 300, abertura: Math.PI, t: 0, cor: '140,210,255' });
+      Jogo.cam.tremor = 12; Som.tocar('expansao'); vibrar([60, 40, 60]);
+    });
+    if (c.t > C.onda && c.t < C.joia && Math.random() < dt * 60) { const a = Math.random() * Math.PI * 2, r = 90 + Math.random() * 120; Efeitos.particula(ALTAR.x + Math.cos(a) * r, ALTAR.y + Math.sin(a) * r * 0.7, 40 + Math.random() * 60, { vx: -Math.cos(a) * r * 1.3, vy: -Math.sin(a) * r, vz: 30, cor: Math.random() < 0.5 ? '#E6F2FF' : '#B58CFF', vida: 0.7, tam: 2, aditivo: true, forma: 'cristal' }); }
+    this.uma(c, 'clarao', C.clarao, () => { Jogo.flashTela = 1; Jogo.cam.tremor = 16; Som.tocar('vitoria'); vibrar([100, 50, 160]); Convergencia.concluir(); });
+    this.uma(c, 'mensagem', C.clarao + 1.6, () => Hud.anunciar('O pedestal desperta', 'Algo novo está para nascer', '“Onze ecos viraram um só. O que dorme no centro do altar ainda não tem nome… mas já sabe o seu.”', '', 3.6));
+    this.uma(c, 'fim', C.fim, () => {
+      this.terminar();
+      Hud.aviso('Convergência concluída. O pedestal central guarda uma luz que ainda vai despertar. Você pode sair do Vazio normalmente.', false); Hud.tAviso = 6;
+    });
+  };
+}
+
+// câmera no altar: o Vazio é uma dimensão sem bordas, então perto do altar a câmera centraliza você
+// (no celular em pé, a borda do mapa deixava o altar escondido atrás da barra de vida)
+{
+  const camOrig = atualizarCamera;
+  atualizarCamera = function (dt) {
+    const j = Jogo.jogador, cam = Jogo.cam;
+    const livre = Vazio.ativo && !!j && ((Cena.atual && Cena.atual.tipo === 'convergencia') || Math.hypot(j.x - ALTAR.x, j.y - ALTAR.y) < ALTAR.r + 140) ? 1 : 0;
+    Convergencia.camF = lerp(Convergencia.camF || 0, livre, 1 - Math.exp(-2.5 * dt));
+    if (Convergencia.camF < 0.002 || !j) { camOrig(dt); Convergencia.camLivre = null; return; }
+    const L = Convergencia.camLivre || (Convergencia.camLivre = { x: cam.x, y: cam.y });
+    const alvo = Jogo.camAlvo || { x: j.x + j.vx * 0.22, y: j.y + j.vy * 0.22 }, k = 1 - Math.exp(-(Jogo.camAlvo ? 3 : 5) * dt);
+    L.x += (alvo.x - L.x) * k; L.y += (alvo.y - L.y) * k;
+    camOrig(dt);
+    cam.x = lerp(cam.x, L.x, Convergencia.camF); cam.y = lerp(cam.y, L.y, Convergencia.camF);
+  };
+}
+
+/* ---------- 24d. TELAS ---------- */
+Telas.listaReliquias = function () {
+  const conv = Convergencia, d = conv.dados();
+  const rot = { armazenada: 'No altar', carregada: 'Com você', colocada: 'No encaixe central', falta: 'Faltando' };
+  return `<div class="altar-lista">${conv.reliquias().map((a) => {
+    const st = conv.status(a), tem = st !== 'falta', ult = a === conv.ultima();
+    return `<div class="altar-item altar-item--${st}${ult ? ' altar-item--ultima' : ''}" style="--cor:${a.cor}">
+      <div class="altar-item__icone">${Artefatos.svg(a, tem)}</div>
+      <div><b>${tem ? a.nome : 'Relíquia desconhecida'}</b><small>${a.origem}${ult ? ' · última relíquia' : ''}</small></div>
+      <span class="altar-item__st">${rot[st]}</span></div>`;
+  }).join('')}</div>${d.liberada ? '' : ''}`;
+};
+Telas.progressoConvergencia = function () {
+  const conv = Convergencia, tot = conv.reliquias().length, no = conv.noAltar(), d = conv.dados();
+  const pct = Math.round((no / tot) * 100);
+  return `<div class="conv-prog"><div class="conv-prog__rot"><span>Relíquias no altar</span><b>${no} de ${tot}</b></div><div class="conv-prog__barra"><i style="width:${pct}%"></i></div>
+    ${d.concluida ? '<p class="conv-prog__obj">Concluída: o pedestal central está energizado.</p>' : d.colocada ? '<p class="conv-prog__obj">Objetivo: iniciar a cerimônia no Altar da Convergência.</p>' : `<p class="conv-prog__obj">Objetivo: levar a ${conv.ultima().nome} ao encaixe central do Altar da Convergência.</p>`}</div>`;
+};
+Telas.missaoConvergencia = function (novo, aoFechar) {
+  const d = Convergencia.dados();
+  this.abrir(`<p class="pre">${novo ? 'Missão especial desbloqueada' : 'Missão especial'}</p>
+    <h2 class="titulo-cartao">A Convergência das Relíquias</h2>
+    <p class="texto">Todas as relíquias dos chefes da Ametista e da Ilusão estão com você. Desde que a última chegou às suas mãos, elas vibram juntas, no mesmo ritmo, como se lembrassem de um lugar onde já estiveram. Esse lugar fica no Vazio.</p>
+    ${Telas.progressoConvergencia()}
+    ${d.concluida ? '' : `<p class="nota"><b>Como chegar:</b> entre no Vazio, vá até a Câmara de Evolução e siga a ponte a oeste. As relíquias já guardadas esperam no altar; a ${Convergencia.ultima().nome} precisa ser levada por você.</p>`}
+    <div class="acoes-cartao"><button class="btn btn--primario" id="b-conv-ok" data-foco>${novo ? 'Aceitar a missão' : 'Voltar'}</button></div>`, (cam) => {
+    cam.querySelector('#b-conv-ok').addEventListener('click', () => { Som.tocar('clique'); aoFechar(); });
+  }, 'cartao--poder');
+};
+Telas.montarMissaoConvergencia = function (painel) {
+  painel.innerHTML = `<p class="texto">As relíquias dos chefes da Ametista e da Ilusão precisam ser reunidas no Altar da Convergência, no Vazio.</p>${Telas.progressoConvergencia()}${Telas.listaReliquias()}`;
+};
+Telas.altar = function (confirmar) {
+  const conv = Convergencia, d = conv.dados(), u = conv.ultima();
+  let texto, botoes;
+  if (!d.liberada) {
+    const fc = conv.chefesFaltando(), fr = conv.reliquiasFaltando();
+    texto = `<p class="texto">Um altar antigo, mais velho que o próprio Vazio. Os espaços vazios esperam relíquias que você ainda não reuniu.</p>
+      <p class="nota"><b>Ainda falta:</b> ${fc.length ? `vencer ${fc.map((x) => x.nome).join(', ')}` : ''}${fc.length && fr.length ? '; ' : ''}${fr.length ? `conquistar ${fr.map((a) => a.nome).join(', ')}` : ''}.</p>`;
+    botoes = `<button class="btn btn--primario" id="b-altar-voltar" data-foco>Voltar ao Vazio</button>`;
+  } else if (d.concluida) {
+    texto = `<p class="texto">A convergência foi concluída. As relíquias descansam nos seus espaços, e o pedestal central pulsa com uma luz que ainda não tem forma.</p><p class="nota">Algo novo está prestes a despertar…</p>`;
+    botoes = `<button class="btn btn--primario" id="b-altar-voltar" data-foco>Voltar ao Vazio</button>`;
+  } else if (d.colocada) {
+    texto = `<p class="texto">A ${u.nome} já está no encaixe central. As outras relíquias respondem: falta só começar.</p>`;
+    botoes = `<button class="btn btn--primario" id="b-altar-iniciar" data-foco>Iniciar a Convergência</button><button class="btn btn--secundario" id="b-altar-voltar">Agora não</button>`;
+  } else if (confirmar) {
+    texto = `<p class="texto">Colocar a <b>${u.nome}</b> no encaixe central? Ela sai das suas mãos e fica no altar, junto com as outras relíquias.</p>`;
+    botoes = `<button class="btn btn--primario" id="b-altar-confirmar" data-foco>Confirmar</button><button class="btn btn--secundario" id="b-altar-cancelar">Cancelar</button>`;
+  } else {
+    texto = `<p class="texto">As relíquias guardadas brilham nos seus espaços. O encaixe central espera a última: a <b>${u.nome}</b>, que está com você.</p>`;
+    botoes = `<button class="btn btn--primario" id="b-altar-colocar" data-foco>Colocar última relíquia</button><button class="btn btn--secundario" id="b-altar-voltar">Voltar ao Vazio</button>`;
+  }
+  this.abrir(`<p class="pre">Dimensão do Vazio</p><h2 class="titulo-cartao">Altar da Convergência</h2>${texto}
+    ${d.liberada ? Telas.progressoConvergencia() : ''}${Telas.listaReliquias()}
+    <div class="acoes-cartao">${botoes}</div>`, (cam) => {
+    const on = (id, fn) => { const b = cam.querySelector(id); if (b) b.addEventListener('click', () => { Som.tocar('clique'); fn(); }); };
+    on('#b-altar-voltar', () => Vazio.fecharCartao());
+    on('#b-altar-colocar', () => Telas.altar(true));
+    on('#b-altar-cancelar', () => Telas.altar(false));
+    on('#b-altar-confirmar', () => Convergencia.colocar());
+    on('#b-altar-iniciar', () => { if (!Convergencia.iniciarCerimonia(false)) { const f = Convergencia.reliquiasFaltando(); Vazio.fecharCartao(); Hud.aviso(f.length ? `Faltam: ${f.map((a) => a.nome).join(', ')}.` : 'O altar não respondeu.', false); } });
+  }, 'cartao--poder');
+};
+{
+  // Galeria: onde cada relíquia está
+  const galOrig = Telas.montarGaleria;
+  Telas.montarGaleria = function (painel) {
+    galOrig.call(this, painel);
+    const d = Convergencia.dados(), rels = Convergencia.reliquias(), rot = { armazenada: 'Guardada no Altar da Convergência', carregada: 'Com você · leve ao Altar da Convergência', colocada: 'No encaixe central do Altar' };
+    painel.querySelectorAll('.artefato').forEach((el, k) => {
+      const a = ARTEFATOS[k]; if (!a || !rels.includes(a)) return;
+      const st = Convergencia.status(a); if (st === 'falta' || !Vazio.liberada(Vazio.regiao('altar'))) return;
+      el.querySelector('small').insertAdjacentHTML('afterend', `<small class="artefato__altar">${rot[st]}</small>`);
+    });
+    const nota = painel.querySelector('.nota');
+    if (nota && d.liberada) nota.textContent = d.concluida ? 'As relíquias convergiram no Altar. O pedestal central guarda algo que ainda vai despertar.' : 'As relíquias querem ser reunidas: missão especial A Convergência das Relíquias.';
+  };
+  // pausa: acompanhar a missão
+  const jogoOrig = Telas.montarJogo;
+  Telas.montarJogo = function (painel) {
+    jogoOrig.call(this, painel);
+    const d = Convergencia.dados();
+    if (!d.liberada) return;
+    painel.insertAdjacentHTML('afterbegin', `<button class="btn btn--secundario" id="b-conv-pausa" style="width:100%;margin-bottom:10px">Missão: A Convergência (${d.concluida ? 'concluída' : `${Convergencia.noAltar()}/${Convergencia.reliquias().length}`})</button>`);
+    painel.querySelector('#b-conv-pausa').addEventListener('click', () => { Som.tocar('clique'); this.avulso('A Convergência das Relíquias', (pn) => this.montarMissaoConvergencia(pn), () => this.pausa('jogo')); });
+  };
+}
+
+/* ========== 25. AJUSTE 0.9.1 · HABILIDADES DA ILUSÃO NUMA TELA SÓ ==========
+   As três "páginas" viram uma única tela, como na Ametista: todos os botões
+   ficam em posições fixas e aparecem quando a habilidade desperta. */
+CONFIG.versao = '0.9.1';
+PAGINAS_ILUSAO.splice(0, PAGINAS_ILUSAO.length, ['copias', 'invis', 'cenario', 'duplicacao', 'distorcao', 'espelhos', 'projecao', 'labirinto', 'realidade']);
+IluAv.pagina = 0;
+{
+  // teclas 1 a 6 usam as habilidades avançadas (Espaço/F/E continuam nas três primeiras)
+  const teclaOrig = Ilusao.tecla;
+  Ilusao.tecla = function (e) {
+    if (this.ativa && this.liberada()) {
+      const h = { Digit1: 'duplicacao', Digit2: 'distorcao', Digit3: 'espelhos', Digit4: 'projecao', Digit5: 'labirinto', Digit6: 'realidade' }[e.code];
+      if (h) { e.preventDefault(); this.usar(h); return true; }
+    }
+    return teclaOrig.call(this, e);
+  };
+  const iniOrig = HudIlusao.iniciar;
+  HudIlusao.iniciar = function () {
+    iniOrig.call(this);
+    const tc = document.getElementById('teclas');
+    if (tc) tc.textContent = tc.textContent.replace(' · Tab ou 1 2 3 páginas da Ilusão', ' · 1 a 6 habilidades avançadas da Ilusão');
+    const bp = document.getElementById('btn-pagina');
+    if (bp) bp.hidden = true;
+  };
+  const evoOrig = Telas.montarEvolucao;
+  Telas.montarEvolucao = function (painel, pedra, poder) {
+    evoOrig.call(this, painel, pedra, poder);
+    painel.querySelectorAll('.evo-info span').forEach((s) => { const k = s.querySelector('small'); if (k && k.textContent === 'Botão') s.querySelector('b').textContent = 'na tela'; });
+  };
+}
+
+/* ========== 26. EXPANSÃO 1.0 · A PEDRA DO GELO E O REINO GLACIAL ==========
+   26a. A PEDRA DO GELO (estado salvo, desenho, ícone)
+   26b. O NASCIMENTO NO ALTAR (cerimônia, revelação, recuperação)
+   26c. O REINO GLACIAL (mapa, colisões, portal, clima, pontos de interesse)
+   26d. TELAS (aba da pedra, mundos e pedras, cartões) */
+CONFIG.versao = '1.0.0';
+
+/* ---------- 26a. A PEDRA DO GELO ---------- */
+const Gelo = {
+  ativa: false, reagiu: false,
+  padrao() { return { estado: 'oculta', formando: false, formada: false, vista: false, formadaEm: null }; },
+  dados() {
+    const P = Perfil.dados;
+    if (!P) return this.padrao();
+    if (!P.gelo || typeof P.gelo !== 'object') P.gelo = this.padrao();
+    return P.gelo;
+  },
+  formada() { return !!this.dados().formada; },
+  // a nova etapa só existe depois que a Convergência foi concluída de verdade
+  disponivel() { const c = Convergencia.dados(); return !!(c.concluida && c.pedestal === 'energizado') && !this.formada(); },
+  iniciar() {
+    const j = Jogo.jogador;
+    if (this.ativa || !this.disponivel() || Cena.atual || !Vazio.ativo || Glacial.ativo || Convergencia.ativa) return false;
+    if (Vazio.cartaoAberto) Vazio.fecharCartao();
+    if (j.segurando || j.extras.length) Telecinese.soltar();
+    const d = this.dados(); d.formando = true; Perfil.gravar();
+    this.ativa = true;
+    Cena.iniciar('geloNasce', { de: { x: j.x, y: j.y } });
+    return true;
+  },
+  // o clarão: a pedra existe a partir daqui (uma única vez)
+  formar() {
+    const d = this.dados();
+    if (d.formada) return;
+    Object.assign(d, { formada: true, formando: false, estado: 'adormecida', formadaEm: Date.now() });
+    const g = Glacial.dados(); g.desbloqueado = true; g.portal = 'aberto'; g.desbloqueadoEm = Date.now();
+    Perfil.gravar();
+  },
+  // se a cerimônia for interrompida antes do clarão, ela volta ao começo, inteira
+  desfazer() { const d = this.dados(); if (!d.formada) d.formando = false; this.ativa = false; },
+  mostrarCartao() {
+    const d = this.dados();
+    Vazio.abrirCartao(() => Telas.pedraGelo(!d.vista, () => {
+      const nova = !d.vista;
+      d.vista = true; Vazio.fecharCartao();
+      if (nova) { Glacial.abrindo = 0.001; Som.tocar('portalGelo'); Hud.aviso('O véu do arco do altar virou gelo: um portal se abriu. Atravesse-o para conhecer o Reino Glacial.', false); Hud.tAviso = 6; }
+    }));
+  },
+};
+{
+  const padraoOrig = Perfil.padrao;
+  Perfil.padrao = function () { const p = padraoOrig.call(this); p.gelo = Gelo.padrao(); p.glacial = Glacial.padrao(); return p; };
+  const carregarOrig = Perfil.carregar;
+  Perfil.carregar = function () {
+    carregarOrig.call(this);
+    const d = Gelo.dados(); Glacial.dados();
+    // saiu no meio da formação: estado consistente, a cerimônia recomeça inteira
+    if (d.formando && !d.formada) { d.formando = false; this.gravar(); }
+    if (d.formada && !Glacial.dados().desbloqueado) { Glacial.dados().desbloqueado = true; Glacial.dados().portal = 'aberto'; this.gravar(); }
+  };
+  const novoOrig = Perfil.novoJogo;
+  Perfil.novoJogo = function () { novoOrig.call(this); this.dados.gelo = Gelo.padrao(); this.dados.glacial = Glacial.padrao(); Gelo.ativa = false; };
+}
+
+// um floco de neve de seis pontas
+function flocoGelo(c, x, y, r, a, rot = 0) {
+  c.save(); c.translate(x, y); c.rotate(rot);
+  c.strokeStyle = `rgba(235,248,255,${a.toFixed(3)})`; c.lineWidth = Math.max(0.6, r * 0.22);
+  c.beginPath();
+  for (let k = 0; k < 6; k++) { const ang = (k / 6) * Math.PI * 2, cx = Math.cos(ang), cy = Math.sin(ang); c.moveTo(0, 0); c.lineTo(cx * r, cy * r); c.moveTo(cx * r * 0.55 - cy * r * 0.22, cy * r * 0.55 + cx * r * 0.22); c.lineTo(cx * r * 0.55, cy * r * 0.55); c.lineTo(cx * r * 0.55 + cy * r * 0.22, cy * r * 0.55 - cx * r * 0.22); }
+  c.stroke(); c.restore();
+}
+// a Pedra do Gelo: camadas de cristal translúcido, reflexos prateados, frio circulando no núcleo
+// forma: 0 → 1 (as camadas aparecem uma a uma); brilho: intensidade da aura
+function desenharPedraGelo(c, x, y, t, s = 1, forma = 1, brilho = 1) {
+  if (forma <= 0) return;
+  const f1 = clamp(forma / 0.4, 0, 1), f2 = clamp((forma - 0.35) / 0.35, 0, 1), f3 = clamp((forma - 0.7) / 0.3, 0, 1);
+  c.save(); c.translate(x, y);
+  // aura fria
+  c.save(); c.globalCompositeOperation = 'lighter';
+  const ra = 46 * s * (0.6 + 0.4 * f1) * (0.9 + Math.sin(t * 2.4) * 0.08);
+  const ga = c.createRadialGradient(0, 0, 0, 0, 0, ra); ga.addColorStop(0, `rgba(210,240,255,${(0.55 * brilho * f1).toFixed(3)})`); ga.addColorStop(0.45, `rgba(120,200,255,${(0.25 * brilho * f1).toFixed(3)})`); ga.addColorStop(1, 'rgba(90,170,255,0)');
+  c.fillStyle = ga; c.fillRect(-ra, -ra, ra * 2, ra * 2);
+  c.restore();
+  // giro lento: a largura muda como se a pedra girasse
+  const gx = 0.82 + Math.cos(t * 0.9) * 0.18;
+  const P = (k, e) => [[0, -26], [12, -13], [11, 13], [0, 26], [-11, 13], [-12, -13]].map(([px, py]) => [px * s * k * gx * e, py * s * k]);
+  const poli = (pts) => { c.beginPath(); pts.forEach(([px, py], i) => (i ? c.lineTo(px, py) : c.moveTo(px, py))); c.closePath(); };
+  // camada externa: casca translúcida
+  const k1 = 0.45 + 0.55 * f1;
+  const g1 = c.createLinearGradient(-12 * s, -26 * s, 12 * s, 26 * s);
+  g1.addColorStop(0, `rgba(255,255,255,${(0.75 * f1).toFixed(3)})`); g1.addColorStop(0.45, `rgba(160,220,255,${(0.55 * f1).toFixed(3)})`); g1.addColorStop(1, `rgba(40,110,190,${(0.7 * f1).toFixed(3)})`);
+  c.fillStyle = g1; poli(P(k1, 1)); c.fill();
+  c.strokeStyle = `rgba(232,246,255,${(0.9 * f1).toFixed(3)})`; c.lineWidth = 1.2; c.stroke();
+  // camada do meio: facetas
+  if (f2 > 0) {
+    c.strokeStyle = `rgba(255,255,255,${(0.55 * f2).toFixed(3)})`; c.lineWidth = 0.9;
+    const p = P(k1, 1);
+    c.beginPath(); c.moveTo(p[0][0], p[0][1]); c.lineTo(0, 0); c.lineTo(p[3][0], p[3][1]);
+    c.moveTo(p[1][0], p[1][1]); c.lineTo(0, 0); c.lineTo(p[5][0], p[5][1]); c.moveTo(p[2][0], p[2][1]); c.lineTo(0, 0); c.lineTo(p[4][0], p[4][1]); c.stroke();
+    c.fillStyle = `rgba(190,232,255,${(0.35 * f2).toFixed(3)})`; poli(P(0.62, 1)); c.fill();
+    c.strokeStyle = `rgba(200,215,230,${(0.7 * f2).toFixed(3)})`; c.stroke();
+  }
+  // núcleo: energia fria circulando
+  if (f3 > 0) {
+    c.save(); c.globalCompositeOperation = 'lighter';
+    const gn = c.createRadialGradient(0, 0, 0, 0, 0, 12 * s); gn.addColorStop(0, `rgba(255,255,255,${(0.95 * f3).toFixed(3)})`); gn.addColorStop(1, 'rgba(140,210,255,0)');
+    c.fillStyle = gn; c.fillRect(-12 * s, -12 * s, 24 * s, 24 * s);
+    c.strokeStyle = `rgba(200,240,255,${(0.7 * f3).toFixed(3)})`; c.lineWidth = 1;
+    for (let k = 0; k < 3; k++) { c.beginPath(); c.ellipse(0, 0, 7 * s * gx, (15 - k * 3) * s, 0, t * (1.6 + k * 0.7) + k * 2, t * (1.6 + k * 0.7) + k * 2 + 2.4); c.stroke(); }
+    c.restore();
+  }
+  // reflexo prateado que passa pela superfície
+  const ref = ((t * 0.35) % 1.4) - 0.2;
+  if (ref > 0 && ref < 1) {
+    c.save(); poli(P(k1, 1)); c.clip();
+    c.fillStyle = `rgba(255,255,255,${(0.45 * f1).toFixed(3)})`; c.beginPath(); const yy = (-26 + 52 * ref) * s;
+    c.moveTo(-14 * s, yy - 6 * s); c.lineTo(14 * s, yy - 14 * s); c.lineTo(14 * s, yy - 9 * s); c.lineTo(-14 * s, yy - 1 * s); c.closePath(); c.fill();
+    c.restore();
+  }
+  // flocos que orbitam a pedra
+  for (let k = 0; k < 6; k++) {
+    const a = t * 0.8 + (k / 6) * Math.PI * 2, r = (30 + Math.sin(t * 1.3 + k) * 4) * s;
+    flocoGelo(c, Math.cos(a) * r, Math.sin(a) * r * 0.5 - Math.sin(t + k) * 4 * s, 2.6 * s, 0.75 * f1, t + k);
+  }
+  c.restore();
+}
+// ícone para os menus (gradientes com id próprio para não colidir)
+function svgPedraGelo(id) {
+  return `<svg class="svg-gelo" viewBox="0 0 48 48" aria-hidden="true"><defs>
+    <linearGradient id="${id}a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#A6DEFF"/><stop offset="1" stop-color="#2C6EBE"/></linearGradient>
+    <radialGradient id="${id}b"><stop offset="0" stop-color="#E6F6FF" stop-opacity=".9"/><stop offset="1" stop-color="#8FD8FF" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="24" cy="24" r="23" fill="url(#${id}b)" opacity=".5"/>
+    <path d="M24 4L33.5 14 32 34 24 44 16 34 14.5 14Z" fill="url(#${id}a)" stroke="#EAF8FF" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M24 4V44M14.5 14L24 24 33.5 14M16 34L24 24 32 34" stroke="#fff" stroke-opacity=".55" stroke-width=".8" fill="none"/>
+    <path d="M19 15.5L29 15.5 28 31 24 36 20 31Z" fill="#DFF4FF" fill-opacity=".35"/>
+    <g stroke="#fff" stroke-width=".9" stroke-linecap="round" opacity=".85"><path d="M7 10v5M4.6 11.2l4.8 2.6M4.6 13.8l4.8-2.6"/><path d="M41 32v4M39 33l4 2M39 35l4-2"/></g></svg>`;
+}
+// a pedra fica com você: um pequeno cristal azul ao lado da Ametista no colar
+{
+  const colarOrig = desenharColar;
+  desenharColar = function (c, x, y, escala) {
+    colarOrig(c, x, y, escala);
+    if (!Gelo.formada() || Gelo.ativa) return;
+    const t = Jogo.tempo;
+    c.save(); c.translate(x, y); c.scale(escala, escala);
+    const g = c.createLinearGradient(5, 0, 9, 7); g.addColorStop(0, '#FFFFFF'); g.addColorStop(0.5, '#9FDCFF'); g.addColorStop(1, '#2C6EBE');
+    c.fillStyle = g; c.strokeStyle = 'rgba(10,30,60,0.9)'; c.lineWidth = 0.6;
+    c.beginPath(); c.moveTo(7, 0.2); c.lineTo(8.8, 2.6); c.lineTo(8.2, 5.6); c.lineTo(7, 7); c.lineTo(5.8, 5.6); c.lineTo(5.2, 2.6); c.closePath(); c.fill(); c.stroke();
+    c.globalCompositeOperation = 'lighter'; c.fillStyle = `rgba(190,235,255,${(0.35 + Math.sin(t * 2.2) * 0.2 + (Glacial.ativo ? 0.25 : 0)).toFixed(3)})`; circulo(c, 7, 3.6, 3.2); c.fill();
+    c.restore();
+  };
+}
+
+/* ---------- 26b. O NASCIMENTO NO ALTAR ---------- */
+const NASCE = { reage: 0, cristais: 2.0, fluxo: 4.0, sobe: 8.0, geada: 9.0, forma: 11.0, clarao: 15.0, revela: 15.6, fala: 19.4, desce: 21.6, une: 23.6, fim: 24.6 };
+const ALTAR_CENTRO = () => ({ x: ALTAR.x, y: ALTAR.y * CONFIG.K - 92 });
+// posição da pedra durante a cena (coordenadas de tela do mundo)
+function posPedraNascendo(cer, j) {
+  const N = NASCE, K = CONFIG.K, o = ALTAR_CENTRO(), alto = o.y - 44 * clamp((cer.t - N.sobe) / (N.forma - N.sobe), 0, 1);
+  if (cer.t < N.desce) return { x: o.x, y: alto + Math.sin(cer.t * 1.6) * 3, s: cer.t < N.revela ? 1 : 1.5 };
+  const f = clamp((cer.t - N.desce) / (N.une - N.desce), 0, 1), fe = f * f * (3 - 2 * f);
+  const dx = j.x, dy = j.y * K - 34 - (j.z || 0);
+  return { x: lerp(o.x, dx, fe), y: lerp(alto, dy, fe) - Math.sin(f * Math.PI) * 50, s: lerp(1.5, 0.28, fe) };
+}
+function desenharNascimento(c, t, cer) {
+  const N = NASCE, K = CONFIG.K, ct = cer.t, o = ALTAR_CENTRO(), j = Jogo.jogador;
+  const esp = Convergencia.espacos().filter((e) => !e.centro);
+  c.save(); c.globalCompositeOperation = 'lighter';
+  const luz = (x, y, r, cor, a) => { if (a <= 0) return; const g = c.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, cor.replace('A', a.toFixed(3))); g.addColorStop(1, cor.replace('A', 0)); c.fillStyle = g; c.fillRect(x - r, y - r, r * 2, r * 2); };
+  // 1. o pedestal reage à sua presença
+  const pul = clamp(ct / 1.5, 0, 1) * (0.5 + Math.sin(ct * 6) * 0.25);
+  if (ct < N.une) luz(ALTAR.x, ALTAR.y * K - 30, 90, 'rgba(160,220,255,A)', 0.35 * pul + 0.1);
+  // 2. os cristais do altar acendem em azul
+  if (ct > N.cristais && ct < N.une) {
+    const a = clamp((ct - N.cristais) / 1.2, 0, 1);
+    for (let k = 0; k < 7; k++) {
+      const ang = (k / 7) * Math.PI * 2 + t * (0.3 + a * 0.6), r = 138;
+      luz(ALTAR.x + Math.cos(ang) * r, ALTAR.y * K + Math.sin(ang) * r * K - 74, 30, 'rgba(170,230,255,A)', 0.45 * a);
+    }
+  }
+  // 3. a energia das relíquias converge de novo, agora fria
+  if (ct > N.fluxo && ct < N.clarao + 0.6) {
+    const sai = ct > N.clarao ? clamp(1 - (ct - N.clarao) / 0.6, 0, 1) : 1;
+    esp.forEach((e, k) => {
+      const ini = N.fluxo + k * 0.15; if (ct < ini) return;
+      const a = clamp((ct - ini) / 0.6, 0, 1) * sai, frio = clamp((ct - ini - 1) / 3, 0, 1);
+      const px = e.x, py = e.y * K - 36;
+      c.strokeStyle = frio > 0.5 ? `rgba(190,238,255,${(0.55 * a).toFixed(3)})` : corA(e.a.cor, 0.5 * a);
+      c.lineWidth = 2 + Math.sin(t * 8 + k) * 0.8;
+      c.beginPath(); c.moveTo(px, py); c.quadraticCurveTo((px + o.x) / 2 + Math.sin(t * 1.5 + k) * 26, (py + o.y) / 2 - 36, o.x, o.y - 30 * clamp((ct - N.sobe) / 3, 0, 1)); c.stroke();
+      luz(px, py, 22, frio > 0.5 ? 'rgba(190,238,255,A)' : corA(e.a.cor, 'A'), 0.6 * a);
+    });
+  }
+  // 4. geada se espalhando pelo chão do altar
+  if (ct > N.geada) {
+    const g = clamp((ct - N.geada) / 5, 0, 1), R = 40 + g * 190;
+    c.save(); c.translate(ALTAR.x, ALTAR.y * K); c.scale(1, K);
+    c.strokeStyle = `rgba(210,245,255,${(0.45 * (ct < N.une ? 1 : 0.4)).toFixed(3)})`; c.lineWidth = 1.4;
+    circulo(c, 0, 0, R); c.stroke();
+    for (let k = 0; k < 18; k++) { const a = (k / 18) * Math.PI * 2; c.beginPath(); c.moveTo(Math.cos(a) * R * 0.55, Math.sin(a) * R * 0.55); c.lineTo(Math.cos(a) * R, Math.sin(a) * R); c.lineTo(Math.cos(a + 0.06) * R * 0.86, Math.sin(a + 0.06) * R * 0.86); c.stroke(); }
+    const gg = c.createRadialGradient(0, 0, 0, 0, 0, R); gg.addColorStop(0, 'rgba(200,240,255,0.18)'); gg.addColorStop(1, 'rgba(200,240,255,0)'); c.fillStyle = gg; circulo(c, 0, 0, R); c.fill();
+    c.restore();
+  }
+  // 5. o brilho cresce no centro
+  const br = clamp((ct - N.sobe) / (N.clarao - N.sobe), 0, 1) * (ct < N.revela ? 1 : clamp(1 - (ct - N.revela) / 1.5, 0.35, 1));
+  luz(o.x, o.y - 30, 70 + br * 150, 'rgba(200,240,255,A)', (ct < N.revela ? 0.5 : 0.3) * br);
+  // raios de luz na revelação
+  if (ct > N.clarao && ct < N.desce + 0.5) {
+    const a = clamp((ct - N.clarao) / 0.8, 0, 1) * clamp((N.desce + 0.5 - ct) / 1, 0, 1), p = posPedraNascendo(cer, j);
+    c.save(); c.translate(p.x, p.y);
+    for (let k = 0; k < 10; k++) {
+      const ang = (k / 10) * Math.PI * 2 + t * 0.25, L = 150 + Math.sin(t * 2 + k) * 30;
+      const g = c.createLinearGradient(0, 0, Math.cos(ang) * L, Math.sin(ang) * L); g.addColorStop(0, `rgba(220,245,255,${(0.2 * a).toFixed(3)})`); g.addColorStop(1, 'rgba(220,245,255,0)');
+      c.fillStyle = g; c.beginPath(); c.moveTo(0, 0); c.lineTo(Math.cos(ang - 0.07) * L, Math.sin(ang - 0.07) * L); c.lineTo(Math.cos(ang + 0.07) * L, Math.sin(ang + 0.07) * L); c.closePath(); c.fill();
+    }
+    c.restore();
+  }
+  c.restore();
+  // 6. a semente sobe e vira pedra, camada por camada
+  if (ct >= N.sobe && ct < N.une) {
+    const p = posPedraNascendo(cer, j), forma = ct < N.forma ? 0.12 : clamp((ct - N.forma) / (N.clarao - N.forma), 0.12, 1);
+    if (ct < N.clarao) desenharSemente(c, p.x, p.y, t, clamp(1 - (ct - N.forma) / 3, 0, 1), true);
+    const perto = ct > N.desce ? clamp((ct - N.desce) / (N.une - N.desce), 0, 1) : 0;
+    desenharPedraGelo(c, p.x, p.y, t, p.s, forma, 1 + perto * 0.8);
+  }
+}
+{
+  // a semente do pedestal: some quando a pedra nasce; depois fica só a geada no topo do pedestal
+  const sementeOrig = desenharSemente;
+  desenharSemente = function (c, x, y, t, a, daCena) {
+    const cer = Cena.atual && Cena.atual.tipo === 'geloNasce' ? Cena.atual : null;
+    if (!daCena && cer && cer.t >= NASCE.sobe) return;
+    if (!daCena && Gelo.formada()) {
+      c.save(); c.globalCompositeOperation = 'lighter';
+      const g = c.createRadialGradient(x, y + 52, 0, x, y + 52, 34); g.addColorStop(0, 'rgba(200,240,255,0.35)'); g.addColorStop(1, 'rgba(200,240,255,0)'); c.fillStyle = g; c.fillRect(x - 34, y + 18, 68, 68);
+      for (let k = 0; k < 5; k++) { const a2 = (k / 5) * Math.PI * 2 + t * 0.3; flocoGelo(c, x + Math.cos(a2) * 16, y + 46 + Math.sin(a2) * 6, 2.2, 0.6, t * 0.5 + k); }
+      c.restore();
+      return;
+    }
+    sementeOrig(c, x, y, t, a);
+  };
+  // o arco do altar vira um portal de gelo quando a pedra nasce
+  const arcoOrig = desenharAltarArco;
+  desenharAltarArco = function (c, s, t) {
+    arcoOrig(c, s, t);
+    if (!Gelo.formada()) return;
+    const d = Gelo.dados(), K = CONFIG.K, x = s.x, by = s.y * K;
+    if (Glacial.abrindo > 0) Glacial.abrindo = Math.min(1, Glacial.abrindo + 1 / 120);
+    const ab = d.vista ? (Glacial.abrindo > 0 ? Glacial.abrindo : 1) : 0.25;
+    c.save(); c.globalCompositeOperation = 'lighter';
+    c.beginPath(); c.moveTo(x - 50, by); c.lineTo(x - 50, by - 118); c.quadraticCurveTo(x, by - 160, x + 50, by - 118); c.lineTo(x + 50, by); c.closePath(); c.save(); c.clip();
+    const g = c.createRadialGradient(x, by - 70, 4, x, by - 70, 90); g.addColorStop(0, `rgba(240,252,255,${(0.75 * ab).toFixed(3)})`); g.addColorStop(0.5, `rgba(130,205,255,${(0.45 * ab).toFixed(3)})`); g.addColorStop(1, `rgba(60,130,220,${(0.2 * ab).toFixed(3)})`);
+    c.fillStyle = g; c.fillRect(x - 50, by - 160, 100, 160);
+    c.strokeStyle = `rgba(235,250,255,${(0.6 * ab).toFixed(3)})`; c.lineWidth = 1.4;
+    for (let k = 0; k < 4; k++) { c.beginPath(); c.ellipse(x, by - 66, 14 + k * 9, 24 + k * 12, 0, t * (1.2 + k * 0.4) + k, t * (1.2 + k * 0.4) + k + 2.4); c.stroke(); }
+    for (let k = 0; k < 8; k++) { const yy = by - ((t * 26 + k * 19) % 150); flocoGelo(c, x - 36 + ((k * 37) % 72), yy, 2.2, 0.7 * ab, t + k); }
+    c.restore(); c.restore();
+  };
+}
+Vazio.ESTACOES.push({ id: 'portalGelo', regiao: 'altar', x: ALTAR.x, y: ALTAR.y - 74, rotulo: () => 'Entrar no Reino Glacial', acao: () => Glacial.entrar(), cond: () => Gelo.formada() && Gelo.dados().vista && !Gelo.ativa });
+{
+  const rotOrig = Convergencia.rotulo;
+  Convergencia.rotulo = function () {
+    const d = this.dados();
+    if (Gelo.ativa) return '';
+    if (d.concluida && !Gelo.formada()) return 'Tocar o pedestal';
+    if (Gelo.formada() && !Gelo.dados().vista) return 'Ver a Pedra do Gelo';
+    return rotOrig.call(this);
+  };
+  const intOrig = Convergencia.interagir;
+  Convergencia.interagir = function () {
+    if (Gelo.ativa) return;
+    if (Gelo.disponivel()) { Gelo.iniciar(); return; }
+    if (Gelo.formada() && !Gelo.dados().vista) { Gelo.mostrarCartao(); return; }
+    intOrig.call(this);
+  };
+  const cenaOrig = Cena.atualizar;
+  Cena.atualizar = function (dt) {
+    const c = this.atual;
+    if (!c || c.tipo !== 'geloNasce') { cenaOrig.call(this, dt); return; }
+    const N = NASCE, j = Jogo.jogador, o = ALTAR_CENTRO(), K = CONFIG.K;
+    c.t += dt;
+    const p = posPedraNascendo(c, j);
+    // câmera: o altar, depois a pedra de perto, depois você
+    if (c.t < N.revela) { Jogo.camAlvo = { x: ALTAR.x, y: ALTAR.y - 60 }; Jogo.camZoomAlvo = c.t < N.forma ? 1.25 : 1.45; }
+    else if (c.t < N.desce) { Jogo.camAlvo = { x: p.x, y: (p.y + 30) / K }; Jogo.camZoomAlvo = 1.85; }
+    else { Jogo.camAlvo = { x: lerp(p.x, j.x, 0.5), y: lerp((p.y + 30) / K, j.y, 0.5) }; Jogo.camZoomAlvo = 1.5; }
+    this.uma(c, 'inicio', 0.05, () => { Som.tocar('materializar'); vibrar([20, 30, 20]); Hud.anunciar('Altar da Convergência', 'O pedestal desperta', 'A energia das onze relíquias volta a se mover.', '', 2.2); });
+    this.uma(c, 'cristais', N.cristais, () => { Som.tocar('geloCristal'); Jogo.cam.tremor = 3; });
+    Convergencia.espacos().filter((e) => !e.centro).forEach((e, k) => this.uma(c, 'fl' + k, N.fluxo + k * 0.15, () => Som.tocar(k % 3 ? 'reliquia' : 'geloCristal')));
+    this.uma(c, 'fluxo', N.fluxo, () => Som.tocar('convergencia'));
+    this.uma(c, 'titulo', N.sobe, () => { Hud.anunciar('Continuação da Convergência', 'O Nascimento', 'O frio desperta no centro do altar.', 'chefe-intro', 2.6); Som.tocar('expansao'); });
+    this.uma(c, 'geada', N.geada, () => { Jogo.cam.tremor = 6; vibrar([30, 30, 30]); Som.tocar('portalGelo'); });
+    // partículas: fluxo frio, vórtice e neve
+    if (c.t > N.fluxo && c.t < N.clarao && Math.random() < dt * 30) { const a = Math.random() * Math.PI * 2, r = 80 + Math.random() * 100; Efeitos.particula(ALTAR.x + Math.cos(a) * r, ALTAR.y + Math.sin(a) * r * 0.75, 30 + Math.random() * 50, { vx: -Math.cos(a) * r * 1.1, vy: -Math.sin(a) * r * 0.8, vz: 50, cor: Math.random() < 0.6 ? '#DFF6FF' : '#8FD0FF', vida: 0.9, tam: 1.8, aditivo: true, forma: 'cristal' }); }
+    if (c.t > N.geada && c.t < N.fim && Math.random() < dt * 22) { const x = ALTAR.x + (Math.random() - 0.5) * 360, y = ALTAR.y + (Math.random() - 0.5) * 260; Efeitos.particula(x, y, 160 + Math.random() * 60, { vx: 6, vy: 0, vz: -45, cor: '#F2FAFF', vida: 3, tam: 1.6 }); }
+    this.uma(c, 'forma', N.forma, () => { Hud.anunciar('', 'Uma nova joia', 'Camada por camada, o cristal toma forma.', '', 2.2); Som.tocar('evolucao'); });
+    this.uma(c, 'clarao', N.clarao, () => {
+      Jogo.flashTela = 1; Jogo.cam.tremor = 14; vibrar([90, 40, 160]);
+      Som.tocar('geloNasce');
+      Jogo.ondasFx.push({ x: ALTAR.x, y: ALTAR.y, dir: { x: 1, y: 0 }, alcance: 380, abertura: Math.PI, t: 0, cor: '190,235,255' });
+      Efeitos.faiscas(ALTAR.x, ALTAR.y, 90, 30, '#E8F8FF');
+      Gelo.formar();
+    });
+    this.uma(c, 'revela', N.revela + 0.4, () => Hud.anunciar('A terceira pedra', 'Pedra do Gelo', 'Azul e branca, translúcida como o primeiro inverno. Uma nova fonte de poder despertou.', 'chefe-intro', 3.4));
+    this.uma(c, 'fala', N.fala, () => Hud.anunciar('', '“Ela me reconhece…”', 'Uma terceira fonte de poder. Ainda adormecida, mas viva.', '', 2.2));
+    this.uma(c, 'desce', N.desce, () => Som.tocar('erguer'));
+    this.uma(c, 'une', N.une, () => { Som.tocar('reliquia'); Efeitos.faiscas(j.x, j.y, 40, 24, '#CFF0FF'); Jogo.flashTela = Math.max(Jogo.flashTela, 0.35); vibrar([40, 30, 60]); });
+    this.uma(c, 'fim', N.fim, () => { this.terminar(); Gelo.ativa = false; Gelo.mostrarCartao(); });
+  };
+  // a cerimônia não deixa nada pela metade se o jogo recomeçar no meio dela
+  const abortarOrig = Vazio.abortar;
+  Vazio.abortar = function () {
+    const emCena = Cena.atual && Cena.atual.tipo === 'geloNasce';
+    abortarOrig.call(this);
+    if (emCena) Cena.terminar();
+    if (Gelo.ativa) { Gelo.desfazer(); Perfil.gravar(); }
+    Glacial.limpar();
+  };
+  const textoOrig = Telas.altar;
+  Telas.altar = function (confirmar) {
+    textoOrig.call(this, confirmar);
+    if (!Gelo.formada()) return;
+    const cam = document.getElementById('camada'), tx = cam.querySelector('.cartao .texto'), nota = cam.querySelector('.cartao .nota');
+    if (tx) tx.textContent = 'A convergência foi concluída e, dela, nasceu a Pedra do Gelo. As relíquias descansam nos seus espaços; no arco do altar, o véu virou gelo.';
+    if (nota) nota.textContent = 'O portal de gelo no arco leva ao Reino Glacial.';
+    const v = cam.querySelector('#b-altar-voltar');
+    if (v && Gelo.dados().vista) {
+      v.insertAdjacentHTML('beforebegin', '<button class="btn btn--primario" id="b-altar-glacial">Atravessar para o Reino Glacial</button>');
+      v.classList.replace('btn--primario', 'btn--secundario');
+      cam.querySelector('#b-altar-glacial').addEventListener('click', () => { Som.tocar('clique'); Vazio.fecharCartao(); Glacial.entrar(); });
+    }
+  };
+}
+
+/* ---------- 26c. O REINO GLACIAL ---------- */
+// O reino é um mundo próprio, aberto pelo portal de gelo do Altar. Ele usa a mesma base da dimensão do Vazio
+// (o mundo lá fora fica congelado no tempo), mas tem mapa, colisões, desenho, clima e pontos de interesse próprios.
+// Para crescer depois: novas regiões entram em GL_REGIOES (com "de" apontando a região vizinha) e as seladas
+// deixam de ter "selada".
+const GL_REGIOES = [
+  { id: 'chegada', nome: 'Clareira da Chegada', x: 900, y: 1150, r: 170, neve: 0.3 },
+  { id: 'campos', nome: 'Campos Nevados', x: 470, y: 980, r: 200, de: 'chegada', neve: 1 },
+  { id: 'lago', nome: 'Lago Congelado', x: 1330, y: 990, r: 210, de: 'chegada', neve: 0.35 },
+  { id: 'ruinas', nome: 'Ruínas do Primeiro Inverno', x: 900, y: 720, r: 175, de: 'chegada', neve: 0.4 },
+  { id: 'caverna', nome: 'Caverna Cristalina', x: 420, y: 560, r: 150, de: 'campos', neve: 0, escura: true },
+  { id: 'mirante', nome: 'Trilha das Montanhas', x: 1370, y: 560, r: 140, de: 'lago', neve: 0.85 },
+  { id: 'gruta', nome: 'Gruta Escondida', x: 150, y: 1150, r: 80, de: 'campos', neve: 0.1, secreta: true },
+  { id: 'portao', nome: 'Portão do Gelo Eterno', x: 900, y: 300, r: 130, de: 'ruinas', selada: 'o portão não se abre para uma pedra adormecida' },
+  { id: 'profundezas', nome: 'Profundezas de Cristal', x: 220, y: 260, r: 110, de: 'caverna', selada: 'uma parede de gelo antigo fecha o túnel' },
+  { id: 'pico', nome: 'Pico da Nevasca', x: 1600, y: 250, r: 110, de: 'mirante', selada: 'a nevasca não deixa ninguém passar' },
+];
+const GL_LORE = {
+  marco: { regiao: 'chegada', titulo: 'A Pedra da Chegada', texto: 'Uma pedra antiga, meio enterrada na neve. As letras foram gravadas por mãos que conheciam o frio: REINO GLACIAL. Embaixo, menor: “Quem atravessa pela luz das relíquias reunidas é esperado.”' },
+  arvore: { regiao: 'campos', titulo: 'A Árvore Anciã', texto: 'Uma árvore inteira presa no gelo, com folhas que ainda guardam a cor de um verão muito antigo. A Pedra do Gelo vibra de leve quando você se aproxima, como se lembrasse dela.' },
+  reflexo: { regiao: 'lago', titulo: 'O Reflexo no Lago', texto: 'O gelo é tão liso que parece um espelho. No reflexo, o cristal azul do seu colar brilha mais do que na realidade. Lá no fundo, uma luz passa devagar e desaparece.' },
+  monumento: { regiao: 'ruinas', titulo: 'Inscrições do Primeiro Inverno', texto: 'Os símbolos contam a história de um povo que guardava três pedras: uma violeta, uma que enganava os olhos e uma azul e branca. Quando as três se separaram, o reino adormeceu. A última linha está coberta de gelo.' },
+  cristalMae: { regiao: 'caverna', titulo: 'O Cristal-Mãe', texto: 'O cristal mais antigo da caverna responde ao seu toque com um som limpo, que ecoa pelos túneis. Por um instante, a Pedra do Gelo pulsa no mesmo ritmo. Ainda não é poder: é reconhecimento.' },
+  mirante: { regiao: 'mirante', titulo: 'O Mirante', texto: 'Daqui se veem os picos do reino, brancos até onde a vista alcança. A nordeste, a nevasca esconde um caminho que sobe ainda mais. Um dia ele vai se abrir.' },
+  gruta: { regiao: 'gruta', titulo: 'As Marcas na Gruta', texto: 'Escondida atrás da neve, uma gruta pequena. Na parede, alguém desenhou uma pedra azul cercada de riscos, como raios de luz. Ao lado, a marca de uma mão, do tamanho da sua.' },
+  portao: { regiao: 'ruinas', titulo: 'O Portão do Gelo Eterno', texto: 'Um portão imenso, selado por camadas de gelo antigo. No centro, um encaixe com o formato exato da Pedra do Gelo. Ela reage, mas o portão não abre: o poder dela ainda dorme.' },
+};
+const Glacial = {
+  ativo: false, tempo: 0, abrindo: 0, neve: 0.3, regiaoAtual: 'chegada', avisado: {}, somT: 0, ventoT: 2, terreno: null,
+  padrao() { return { desbloqueado: false, desbloqueadoEm: null, portal: 'fechado', entradas: 0, visitadas: [], lidos: [], selosVistos: [], ultima: null }; },
+  dados() {
+    const P = Perfil.dados;
+    if (!P) return this.padrao();
+    if (!P.glacial || typeof P.glacial !== 'object') P.glacial = this.padrao();
+    const g = P.glacial;
+    for (const k of ['visitadas', 'lidos', 'selosVistos']) if (!Array.isArray(g[k])) g[k] = [];
+    return g;
+  },
+  reg(id) { return GL_REGIOES.find((r) => r.id === id); },
+  abertas() { return GL_REGIOES.filter((r) => !r.selada); },
+  progresso() {
+    const g = this.dados(), abertas = this.abertas(), lore = Object.keys(GL_LORE);
+    const v = abertas.filter((r) => g.visitadas.includes(r.id)).length, l = lore.filter((k) => g.lidos.includes(k)).length;
+    return { regioes: v, totalRegioes: abertas.length, lidos: l, totalLidos: lore.length, pct: Math.round(((v + l) / (abertas.length + lore.length)) * 100) };
+  },
+  // trecho de caminho de uma região até a vizinha; nas seladas o caminho termina na barreira
+  trecho(r) {
+    const a = this.reg(r.de), n = normalizar(r.x - a.x, r.y - a.y);
+    if (!r.selada) return [{ x: a.x, y: a.y }, { x: r.x, y: r.y }];
+    const gap = Math.hypot(r.x - a.x, r.y - a.y) - a.r - r.r, d = a.r + gap * 0.55;
+    return [{ x: a.x, y: a.y }, { x: a.x + n.x * d, y: a.y + n.y * d }];
+  },
+  barreira(r) { return this.trecho(r)[1]; },
+  largura(r) { return r.secreta ? 20 : 30; },
+  andavel(x, y, m = 12) {
+    for (const r of GL_REGIOES) if (!r.selada && Math.hypot(x - r.x, y - r.y) < r.r - m) return true;
+    for (const r of GL_REGIOES) { if (!r.de) continue; const [A, B] = this.trecho(r); if (distSeg({ x, y }, A, B) < this.largura(r) - (r.selada ? 6 : 0)) return true; }
+    return false;
+  },
+  regiaoEm(x, y) { for (const r of GL_REGIOES) if (!r.selada && Math.hypot(x - r.x, y - r.y) < r.r) return r; return null; },
+  // ---- entrar e voltar ----
+  entrar() {
+    const j = Jogo.jogador;
+    if (!Vazio.ativo || this.ativo || Vazio.transicao || Fluxo.estado !== 'jogando' || Cena.atual || !Gelo.formada()) { Som.tocar('erro'); return; }
+    if (j.segurando || j.extras.length) Telecinese.soltar();
+    Fluxo.estado = 'portal'; Entrada.limpar(); Hud.esconderAviso(); Hud.esconderAnuncio();
+    Vazio.transicao = { tipo: 'glacial', t: 0, dur: 2.4, trocou: false, x: j.x, y: j.y };
+    Jogo.camZoomAlvo = 1.3; Som.tocar('portalGelo'); vibrar([20, 40, 80]);
+  },
+  voltar() {
+    const j = Jogo.jogador;
+    if (!this.ativo || Vazio.transicao || Fluxo.estado !== 'jogando') return;
+    if (j.segurando || j.extras.length) Telecinese.soltar();
+    Fluxo.estado = 'portal'; Entrada.limpar(); Hud.esconderAviso();
+    Vazio.transicao = { tipo: 'voltaGlacial', t: 0, dur: 2.0, trocou: false, x: j.x, y: j.y };
+    Jogo.camZoomAlvo = 1.3; Som.tocar('portalGelo'); vibrar([20, 40, 60]);
+  },
+  limparListas() {
+    for (const k of ['objetos', 'inimigos', 'projeteis', 'projeteisInimigos', 'particulas', 'textos', 'ondasFx', 'perigos', 'orbes']) if (Array.isArray(Jogo[k])) Jogo[k] = [];
+    if (typeof TK !== 'undefined' && TK.limpar) TK.limpar();
+  },
+  montar() {
+    const j = Jogo.jogador, g = this.dados();
+    Vazio.treino = false; Vazio.reaparecer = []; Vazio.expansoes = []; Vazio.estacaoPerto = null;
+    this.limparListas();
+    Object.assign(j, { x: 900, y: 1205, z: 0, vx: 0, vy: 0, kx: 0, ky: 0 });
+    this.ativo = true; this.tempo = 0; this.avisado = {}; this.regiaoAtual = 'chegada'; this.neve = 0.3; this.ventoT = 1.5;
+    g.desbloqueado = true; g.portal = 'aberto'; g.entradas++; this.primeira = g.entradas === 1;
+    if (!g.visitadas.includes('chegada')) g.visitadas.push('chegada');
+    g.ultima = 'chegada';
+    Perfil.gravar();
+    this.montarCenario(); this.terreno = this.gerarTerreno();
+    Jogo.cam.x = j.x; Jogo.cam.y = j.y; Hud.cache = {};
+  },
+  aposEntrar() {
+    if (this.primeira) {
+      Hud.anunciar('Novo mundo descoberto', 'Reino Glacial', 'Um reino antigo, grandioso e adormecido sob o gelo.', '', 3.6);
+      setTimeout(() => { if (this.ativo) { Hud.aviso('Explore à vontade. O portal atrás de você leva de volta ao Altar da Convergência; o botão do Vazio leva direto ao mundo.', false); Hud.tAviso = 7; } }, 3700);
+    } else Hud.anunciar('', 'Reino Glacial', `${this.progresso().pct}% explorado`, '', 2.2);
+  },
+  // volta ao Vazio, diante do arco do altar
+  desmontar() {
+    const j = Jogo.jogador;
+    this.ativo = false; this.terreno = null; Vazio.estacaoPerto = null;
+    this.limparListas();
+    Vazio.montarCenario();
+    Object.assign(j, { x: ALTAR.x, y: ALTAR.y - 55, z: 0, vx: 0, vy: 0, kx: 0, ky: 0 });
+    Vazio.regiaoAtual = 'altar'; Convergencia.entrouAltar = true;
+    Jogo.cam.x = j.x; Jogo.cam.y = j.y; Hud.cache = {};
+  },
+  aposVoltar() { Hud.anunciar('Vazio', 'Altar da Convergência', 'O portal de gelo continua aberto.', '', 2); },
+  limpar() { this.ativo = false; this.terreno = null; },
+  // ---- cenário ----
+  montarCenario() {
+    Mundo.estaticos.length = 0; Jogo.objetos = [];
+    const add = (s) => { Mundo.estaticos.push({ classe: 'estatico', ...s }); return s; };
+    const rnd = aleatorio(9191);
+    const livre = (x, y, folga) => {
+      for (const r of GL_REGIOES) if (r.de) { const [A, B] = this.trecho(r); if (distSeg({ x, y }, A, B) < this.largura(r) + folga) return false; }
+      for (const s of Mundo.estaticos) if (Math.hypot(s.x - x, s.y - y) < (s.raio || 10) + folga) return false;
+      return true;
+    };
+    // pontos fixos
+    add({ tipo: 'portalGlacial', x: 900, y: 1270, raio: 18 });
+    add({ tipo: 'marcoGelo', x: 775, y: 1085, raio: 14, lore: 'marco' });
+    add({ tipo: 'arvoreAnciaGelo', x: 505, y: 915, raio: 24, lore: 'arvore' });
+    add({ tipo: 'monumentoGelo', x: 900, y: 690, raio: 24, lore: 'monumento' });
+    add({ tipo: 'cristalMae', x: 420, y: 520, raio: 26, lore: 'cristalMae', reage: 0 });
+    add({ tipo: 'marcoGelo', x: 1405, y: 505, raio: 14, lore: 'mirante', mirante: true });
+    // barreiras das regiões seladas
+    for (const r of GL_REGIOES) if (r.selada) { const b = this.barreira(r); add({ tipo: r.id === 'portao' ? 'portaoGelo' : 'paredeGelo', x: b.x, y: b.y + 4, raio: r.id === 'portao' ? 34 : 28, regiao: r.id }); }
+    // cristais, pinheiros e colunas por região
+    const anel = (r, n, raio, f, extra = {}) => {
+      for (let k = 0; k < n; k++) {
+        const a = (k / n) * Math.PI * 2 + rnd() * 0.4, rr0 = r.r * (f + rnd() * 0.12), x = r.x + Math.cos(a) * rr0, y = r.y + Math.sin(a) * rr0;
+        if (!livre(x, y, 36)) continue;
+        add({ x, y, raio, semente: rnd() * 100, alto: 0, reage: 0, ...extra(k) });
+      }
+    };
+    const R = (id) => this.reg(id);
+    anel(R('chegada'), 6, 12, 0.72, () => ({ tipo: 'cristalGelo', alto: 30 + rnd() * 24 }));
+    anel(R('campos'), 14, 13, 0.4, () => ({ tipo: 'pinheiroGelo', alto: 54 + rnd() * 34 }));
+    anel(R('campos'), 8, 13, 0.75, () => ({ tipo: 'pinheiroGelo', alto: 60 + rnd() * 30 }));
+    anel(R('campos'), 4, 12, 0.6, () => ({ tipo: 'cristalGelo', alto: 28 + rnd() * 20 }));
+    anel(R('lago'), 9, 12, 0.9, () => ({ tipo: 'cristalGelo', alto: 26 + rnd() * 26 }));
+    anel(R('ruinas'), 8, 14, 0.66, (k) => ({ tipo: 'colunaGelo', quebrada: k % 3 === 1, alto: k % 3 === 1 ? 40 + rnd() * 20 : 96 + rnd() * 16 }));
+    anel(R('caverna'), 9, 13, 0.78, () => ({ tipo: 'cristalGelo', alto: 40 + rnd() * 34, grande: true }));
+    anel(R('mirante'), 4, 16, 0.7, () => ({ tipo: 'rochaGelo', alto: 20 + rnd() * 14 }));
+    anel(R('gruta'), 4, 10, 0.62, () => ({ tipo: 'cristalGelo', alto: 22 + rnd() * 14 }));
+    // montanhas entre as regiões (as trilhas passam entre elas)
+    for (const [x, y, s] of [[690, 770, 1], [1115, 770, 1], [650, 410, 0.95], [1150, 410, 0.95], [1625, 800, 1.1], [190, 760, 1], [1620, 1250, 0.6], [380, 1310, 0.55], [1250, 1325, 0.5], [1700, 520, 0.8]]) add({ tipo: 'montanhaGelo', x, y, raio: 40 * s, s, semente: rnd() * 10 });
+  },
+  // o chão do reino é pintado uma vez por visita (desempenho no celular); o que se move é desenhado por cima
+  gerarTerreno() {
+    const W = CONFIG.mundo.largura, H = CONFIG.mundo.altura, K = CONFIG.K, topo = 150 * K;
+    const cv = document.createElement('canvas'); cv.width = W; cv.height = Math.round(H * K);
+    const c = cv.getContext('2d'), rnd = aleatorio(5150);
+    // neve profunda (onde não se anda)
+    const g = c.createLinearGradient(0, topo - 30, 0, cv.height);
+    g.addColorStop(0, 'rgba(150,190,225,0)'); g.addColorStop(0.08, '#94B8D8'); g.addColorStop(0.5, '#7FA3C8'); g.addColorStop(1, '#6C90B8');
+    c.fillStyle = g; c.fillRect(0, topo - 30, W, cv.height);
+    // cordilheira ao fundo (o céu aparece entre os picos)
+    for (const [cor, neve, base, alt, seed] of [['#59789F', '#DCEBF7', 250, 170, 3], ['#45648C', '#EEF6FC', 285, 130, 7]]) {
+      const r2 = aleatorio(seed); c.fillStyle = cor; c.beginPath(); c.moveTo(0, base * K);
+      const pts = []; let x = -40; while (x < W + 80) { const h = alt * (0.55 + r2() * 0.45); pts.push([x + 50 + r2() * 40, (base - h) * K]); x += 110 + r2() * 90; }
+      pts.forEach(([px, py], i) => { c.lineTo(px - 60, base * K - (i % 2 ? 10 : 0)); c.lineTo(px, py); });
+      c.lineTo(W + 60, base * K); c.lineTo(W + 60, base * K + 60); c.lineTo(-60, base * K + 60); c.closePath(); c.fill();
+      c.fillStyle = neve; for (const [px, py] of pts) { c.beginPath(); c.moveTo(px, py); c.lineTo(px + 22, py + 26); c.lineTo(px + 8, py + 22); c.lineTo(px - 4, py + 30); c.lineTo(px - 20, py + 24); c.closePath(); c.fill(); }
+    }
+    // montinhos de neve e rochas espalhadas
+    const longe = (x, y, d) => { for (const r of GL_REGIOES) { if (Math.hypot(x - r.x, y - r.y) < r.r + d) return false; if (r.de) { const [A, B] = this.trecho(r); if (distSeg({ x, y }, A, B) < this.largura(r) + d) return false; } } return true; };
+    for (let i = 0; i < 260; i++) { const x = rnd() * W, y = 170 + rnd() * (H - 170); if (!longe(x, y, 26)) continue; c.fillStyle = rnd() < 0.5 ? 'rgba(220,236,250,0.35)' : 'rgba(70,100,140,0.25)'; c.beginPath(); c.ellipse(x, y * K, 14 + rnd() * 30, (5 + rnd() * 9) * K * 1.4, 0, 0, Math.PI * 2); c.fill(); }
+    for (let i = 0; i < 70; i++) {
+      const x = rnd() * W, y = 190 + rnd() * (H - 200); if (!longe(x, y, 40)) continue;
+      const s = 8 + rnd() * 16; c.fillStyle = '#4E6788'; c.beginPath(); c.moveTo(x - s, y * K); c.lineTo(x - s * 0.4, y * K - s * 0.9); c.lineTo(x + s * 0.5, y * K - s * 0.7); c.lineTo(x + s, y * K); c.closePath(); c.fill();
+      c.fillStyle = '#E6F1FA'; c.beginPath(); c.moveTo(x - s * 0.55, y * K - s * 0.6); c.lineTo(x - s * 0.4, y * K - s * 0.9); c.lineTo(x + s * 0.5, y * K - s * 0.7); c.lineTo(x + s * 0.3, y * K - s * 0.5); c.closePath(); c.fill();
+    }
+    // caminhos (o da gruta secreta é quase invisível sob a neve)
+    c.save(); c.scale(1, K); c.lineCap = 'round';
+    for (const r of GL_REGIOES) {
+      if (!r.de) continue; const [A, B] = this.trecho(r);
+      c.strokeStyle = r.secreta ? 'rgba(175,200,225,0.55)' : '#AFC8E0'; c.lineWidth = this.largura(r) * 2 + 10; c.beginPath(); c.moveTo(A.x, A.y); c.lineTo(B.x, B.y); c.stroke();
+      c.strokeStyle = r.secreta ? 'rgba(205,224,240,0.45)' : '#D7E7F4'; c.lineWidth = this.largura(r) * 2 - 6; c.stroke();
+      if (r.selada) { const a = this.reg(r.de), E = { x: r.x, y: r.y }; c.strokeStyle = 'rgba(200,220,240,0.35)'; c.setLineDash([14, 16]); c.lineWidth = 26; c.beginPath(); c.moveTo(B.x, B.y); c.lineTo(lerp(B.x, E.x, 0.7), lerp(B.y, E.y, 0.7)); c.stroke(); c.setLineDash([]); void a; }
+      // pegadas antigas pelo caminho
+      if (!r.secreta && !r.selada) { const L = Math.hypot(B.x - A.x, B.y - A.y), n = normalizar(B.x - A.x, B.y - A.y); for (let d = 60; d < L - 60; d += 34) { const px = A.x + n.x * d - n.y * (((d / 34) | 0) % 2 ? 6 : -6), py = A.y + n.y * d + n.x * (((d / 34) | 0) % 2 ? 6 : -6); c.fillStyle = 'rgba(120,150,185,0.35)'; c.beginPath(); c.ellipse(px, py, 3, 5, Math.atan2(n.y, n.x) + Math.PI / 2, 0, Math.PI * 2); c.fill(); } }
+    }
+    c.restore();
+    // regiões
+    for (const r of GL_REGIOES) {
+      const x = r.x, y = r.y * K, R = r.r, Ry = R * K;
+      c.save();
+      if (r.selada) {
+        c.globalAlpha = 0.75; const gs = c.createRadialGradient(x, y, 10, x, y, R); gs.addColorStop(0, '#C9DDEE'); gs.addColorStop(1, 'rgba(160,190,220,0.2)');
+        c.fillStyle = gs; c.beginPath(); c.ellipse(x, y, R, Ry, 0, 0, Math.PI * 2); c.fill();
+        c.restore(); continue;
+      }
+      if (r.escura) {
+        // caverna: paredes congeladas em volta e chão escuro
+        c.fillStyle = '#22344F'; c.beginPath(); c.ellipse(x, y - 8, R + 42, Ry + 36, 0, 0, Math.PI * 2); c.fill();
+        for (let k = 0; k < 34; k++) { const a = (k / 34) * Math.PI * 2, px = x + Math.cos(a) * (R + 24), py = y + Math.sin(a) * (Ry + 20) - 8, s = 10 + rnd() * 16; c.fillStyle = k % 3 ? '#3D6B9C' : '#86C3EE'; c.beginPath(); c.moveTo(px - s * 0.4, py); c.lineTo(px, py - s * 1.6); c.lineTo(px + s * 0.4, py); c.closePath(); c.fill(); }
+        const gc = c.createRadialGradient(x, y, 10, x, y, R); gc.addColorStop(0, '#46658C'); gc.addColorStop(1, '#2E4566');
+        c.fillStyle = gc; c.beginPath(); c.ellipse(x, y, R, Ry, 0, 0, Math.PI * 2); c.fill();
+        c.restore(); continue;
+      }
+      const gr = c.createRadialGradient(x, y - Ry * 0.2, R * 0.1, x, y, R);
+      gr.addColorStop(0, '#F2F8FD'); gr.addColorStop(0.75, '#DCEAF5'); gr.addColorStop(1, '#C3D8EA');
+      c.fillStyle = gr; c.beginPath(); c.ellipse(x, y, R, Ry, 0, 0, Math.PI * 2); c.fill();
+      c.strokeStyle = 'rgba(120,155,195,0.45)'; c.lineWidth = 2; c.stroke();
+      if (r.id === 'lago') {
+        const gl = c.createRadialGradient(x - R * 0.2, y - Ry * 0.3, 10, x, y, R * 0.86); gl.addColorStop(0, '#D4F0FB'); gl.addColorStop(0.6, '#9CCFEA'); gl.addColorStop(1, '#6FA7D2');
+        c.fillStyle = gl; c.beginPath(); c.ellipse(x, y, R * 0.86, Ry * 0.86, 0, 0, Math.PI * 2); c.fill();
+        c.strokeStyle = 'rgba(255,255,255,0.55)'; c.lineWidth = 1;
+        for (let k = 0; k < 9; k++) { let px = x + (rnd() - 0.5) * R * 1.2, py = y + (rnd() - 0.5) * Ry * 1.1; c.beginPath(); c.moveTo(px, py); for (let s = 0; s < 4; s++) { px += (rnd() - 0.5) * 50; py += (rnd() - 0.5) * 22; c.lineTo(px, py); } c.stroke(); }
+      } else if (r.id === 'ruinas') {
+        c.strokeStyle = 'rgba(110,140,175,0.5)'; c.lineWidth = 1.2;
+        for (let k = -4; k <= 4; k++) { c.beginPath(); c.moveTo(x + k * 32 - 40, y - Ry * 0.75); c.lineTo(x + k * 40, y + Ry * 0.8); c.stroke(); }
+        for (let k = -3; k <= 3; k++) { c.beginPath(); c.moveTo(x - R * 0.8, y + k * 22); c.lineTo(x + R * 0.8, y + k * 22); c.stroke(); }
+        c.fillStyle = 'rgba(190,215,235,0.6)'; c.beginPath(); c.ellipse(x, y - 20, 70, 30, 0, 0, Math.PI * 2); c.fill();
+        c.strokeStyle = 'rgba(90,150,210,0.55)'; c.lineWidth = 2; c.stroke();
+      } else if (r.id === 'chegada') {
+        c.strokeStyle = 'rgba(110,170,230,0.45)'; c.lineWidth = 2;
+        for (const rr0 of [60, 82]) { c.beginPath(); c.ellipse(x, y, rr0, rr0 * K, 0, 0, Math.PI * 2); c.stroke(); }
+        for (let k = 0; k < 6; k++) { const a = (k / 6) * Math.PI * 2; c.beginPath(); c.moveTo(x + Math.cos(a) * 60, y + Math.sin(a) * 60 * K); c.lineTo(x + Math.cos(a) * 82, y + Math.sin(a) * 82 * K); c.stroke(); }
+      } else if (r.id === 'campos') {
+        c.strokeStyle = 'rgba(160,190,220,0.45)'; c.lineWidth = 1.5;
+        for (let k = 0; k < 22; k++) { const px = x + (rnd() - 0.5) * R * 1.6, py = y + (rnd() - 0.5) * Ry * 1.6; if (Math.hypot((px - x) / R, (py - y) / Ry) > 0.9) continue; c.beginPath(); c.moveTo(px, py); c.quadraticCurveTo(px + 20, py - 6, px + 46, py); c.stroke(); }
+      } else if (r.id === 'mirante') {
+        // penhasco ao norte
+        c.fillStyle = '#6F8BAE'; c.beginPath(); c.ellipse(x, y - Ry * 0.35, R * 0.95, Ry * 0.7, 0, Math.PI, Math.PI * 2); c.fill();
+        c.fillStyle = '#DDEAF5'; c.beginPath(); c.ellipse(x, y - Ry * 0.12, R * 0.97, Ry * 0.8, 0, Math.PI * 1.05, Math.PI * 1.95); c.fill();
+        c.strokeStyle = 'rgba(90,120,160,0.6)'; c.lineWidth = 1.5; for (let k = 0; k < 7; k++) { const px = x - R * 0.7 + k * R * 0.23; c.beginPath(); c.moveTo(px, y - Ry * 0.95); c.lineTo(px + 6, y - Ry * 0.6); c.stroke(); }
+      } else if (r.id === 'gruta') {
+        c.fillStyle = '#3B5679'; c.beginPath(); c.ellipse(x, y - Ry * 0.75, R * 0.85, Ry * 0.55, 0, Math.PI, Math.PI * 2); c.fill();
+      }
+      c.restore();
+    }
+    return cv;
+  },
+  // ---- atualização ----
+  atualizar(dt) {
+    const j = Jogo.jogador, g = this.dados();
+    this.tempo += dt;
+    // região atual e regiões descobertas
+    const r = this.regiaoEm(j.x, j.y);
+    if (r) {
+      this.regiaoAtual = r.id;
+      if (!g.visitadas.includes(r.id)) {
+        g.visitadas.push(r.id); g.ultima = r.id; Perfil.gravar();
+        if (r.secreta) { Hud.anunciar('Área secreta descoberta', r.nome, 'Um lugar que a neve escondia.', '', 2.6); Som.tocar('expansao'); }
+        else { Hud.anunciar('Reino Glacial', r.nome, `${this.progresso().pct}% explorado`, '', 2.2); Som.tocar('geloCristal'); }
+      }
+    }
+    // clima: a nevasca muda com a região
+    const alvo = r ? r.neve : 0.45;
+    this.neve = lerp(this.neve, alvo, 1 - Math.exp(-1.2 * dt));
+    this.ventoT -= dt;
+    if (this.ventoT <= 0) { this.ventoT = 3.4 + Math.random() * 3; Som.tocar(this.neve > 0.7 ? 'ventoForte' : 'vento'); }
+    // cristais que reagem à aproximação
+    this.somT = Math.max(0, this.somT - dt);
+    for (const s of Mundo.estaticos) {
+      if (s.tipo !== 'cristalGelo' && s.tipo !== 'cristalMae' && s.tipo !== 'colunaGelo' && s.tipo !== 'monumentoGelo' && s.tipo !== 'arvoreAnciaGelo') continue;
+      const d = Math.hypot(j.x - s.x, j.y - s.y), alvoR = clamp(1 - (d - 30) / 130, 0, 1);
+      s.reage = lerp(s.reage || 0, alvoR, 1 - Math.exp(-4 * dt));
+      if ((s.tipo === 'cristalGelo' || s.tipo === 'cristalMae') && d < 70 && this.tempo > (s.cd || 0)) {
+        s.cd = this.tempo + 6;
+        if (this.somT <= 0) { Som.tocar('geloCristal'); this.somT = 0.5; }
+        Efeitos.faiscas(s.x, s.y, 30, 8, '#DFF6FF');
+      }
+    }
+    if (Math.random() < dt * 10) { const s = Mundo.estaticos[(Math.random() * Mundo.estaticos.length) | 0]; if (s && (s.tipo === 'cristalGelo' || s.tipo === 'cristalMae') && Math.hypot(s.x - j.x, s.y - j.y) < 500) Efeitos.particula(s.x + (Math.random() - 0.5) * 16, s.y, 10 + Math.random() * 30, { vx: 0, vy: 0, vz: 25, cor: '#CFF0FF', vida: 1.2, tam: 1.5, aditivo: true, forma: 'cristal' }); }
+    // ponto de interesse mais próximo
+    let perto = null, md = 80 ** 2;
+    for (const e of this.estacoes()) { const q = dist2(j, e); if (q < md) { md = q; perto = e; } }
+    Vazio.estacaoPerto = perto;
+    // perto de uma passagem selada: mostra que é uma região para o futuro
+    for (const rs of GL_REGIOES) {
+      if (!rs.selada) continue;
+      const b = this.barreira(rs);
+      if (distancia(j, b) < 95 && (!this.avisado[rs.id] || this.tempo - this.avisado[rs.id] > 8)) {
+        this.avisado[rs.id] = this.tempo;
+        if (!g.selosVistos.includes(rs.id)) { g.selosVistos.push(rs.id); Perfil.gravar(); }
+        Hud.aviso(`${rs.nome} · selada: ${rs.selada}.`, false); Som.tocar('bloqueado');
+      }
+    }
+  },
+  // pontos de interação (com o mesmo botão do Vazio)
+  estacoes() {
+    if (this._est) return this._est;
+    const ler = (id) => () => this.ler(id);
+    const L = (id, x, y, rot) => ({ id, x, y, rotulo: () => rot, acao: ler(id) });
+    const b = this.barreira(this.reg('portao'));
+    return (this._est = [
+      { id: 'portal', x: 900, y: 1262, rotulo: () => 'Voltar ao Altar (Vazio)', acao: () => this.voltar() },
+      L('marco', 775, 1085, 'Ler a pedra antiga'),
+      L('arvore', 505, 915, 'Examinar a árvore anciã'),
+      L('reflexo', 1330, 990, 'Olhar o reflexo no gelo'),
+      L('monumento', 900, 690, 'Ler as inscrições'),
+      L('cristalMae', 420, 520, 'Tocar o cristal-mãe'),
+      L('mirante', 1405, 505, 'Contemplar as montanhas'),
+      L('gruta', 150, 1150, 'Examinar as marcas'),
+      L('portao', b.x, b.y + 30, 'Examinar o portão'),
+    ]);
+  },
+  ler(id) {
+    const info = GL_LORE[id], g = this.dados();
+    if (!info) return;
+    const novo = !g.lidos.includes(id);
+    if (novo) { g.lidos.push(id); Perfil.gravar(); }
+    if (id === 'cristalMae') { const s = Mundo.estaticos.find((x) => x.tipo === 'cristalMae'); if (s) { s.pulso = 1; Efeitos.faiscas(s.x, s.y, 50, 26, '#E8F8FF'); } Som.tocar('geloNasce'); }
+    else Som.tocar('geloCristal');
+    Vazio.abrirCartao(() => Telas.loreGlacial(info, novo, this.progresso()));
+  },
+  textoHud() {
+    const r = this.reg(this.regiaoAtual);
+    return `Reino Glacial · ${this.progresso().pct}%|${r ? r.nome : ''}`;
+  },
+};
+
+// ---- desenho do Reino Glacial ----
+Object.assign(Glacial, {
+  desenharCeu(c, t) {
+    const w = Render.w, h = Render.h;
+    const g = c.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#081733'); g.addColorStop(0.5, '#1C4675'); g.addColorStop(1, '#8CB8DE');
+    c.fillStyle = g; c.fillRect(0, 0, w, h);
+    // aurora
+    c.save(); c.globalCompositeOperation = 'lighter';
+    for (let k = 0; k < 3; k++) {
+      c.beginPath();
+      for (let x = 0; x <= w; x += 20) { const y = h * (0.12 + k * 0.07) + Math.sin(x * 0.006 + t * (0.25 + k * 0.1) + k * 2) * 22; x ? c.lineTo(x, y) : c.moveTo(x, y); }
+      c.strokeStyle = k === 1 ? 'rgba(170,130,255,0.16)' : 'rgba(110,255,220,0.16)'; c.lineWidth = 26 - k * 6; c.stroke();
+    }
+    if (!this.estrelas) { const r2 = aleatorio(88); this.estrelas = Array.from({ length: 60 }, () => ({ x: r2(), y: r2() * 0.45, a: 0.3 + r2() * 0.6, v: 0.5 + r2() * 2 })); }
+    for (const s of this.estrelas) { c.fillStyle = `rgba(230,245,255,${(s.a * (0.5 + 0.5 * Math.abs(Math.sin(t * s.v)))).toFixed(3)})`; c.fillRect(s.x * w, s.y * h, 1.4, 1.4); }
+    c.restore();
+  },
+  desenharTerreno(c, t) {
+    const K = CONFIG.K, j = Jogo.jogador;
+    if (!this.terreno) this.terreno = this.gerarTerreno();
+    c.drawImage(this.terreno, 0, 0);
+    // o lago: brilho que corre pelo gelo, reflexo das montanhas e o seu reflexo
+    const L = this.reg('lago'), x = L.x, y = L.y * K, R = L.r * 0.86, Ry = R * K;
+    c.save(); c.beginPath(); c.ellipse(x, y, R, Ry, 0, 0, Math.PI * 2); c.clip();
+    c.globalCompositeOperation = 'lighter';
+    for (let k = 0; k < 3; k++) {
+      const f = ((t * 0.06 + k / 3) % 1), bx = x - R + f * R * 2.4;
+      const g = c.createLinearGradient(bx - 40, 0, bx + 40, 0); g.addColorStop(0, 'rgba(255,255,255,0)'); g.addColorStop(0.5, 'rgba(255,255,255,0.22)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+      c.fillStyle = g; c.save(); c.translate(bx, y); c.transform(1, 0, -0.6, 1, 0, 0); c.fillRect(-40, -Ry, 80, Ry * 2); c.restore();
+    }
+    c.globalCompositeOperation = 'source-over';
+    // montanhas refletidas (de cabeça para baixo, bem suaves)
+    c.fillStyle = 'rgba(70,110,160,0.18)';
+    for (let k = 0; k < 4; k++) { const mx = x - R * 0.7 + k * R * 0.47; c.beginPath(); c.moveTo(mx - 50, y - Ry * 0.5); c.lineTo(mx, y - Ry * 0.5 + 60 + k % 2 * 20); c.lineTo(mx + 50, y - Ry * 0.5); c.closePath(); c.fill(); }
+    if (j && Math.hypot(j.x - L.x, j.y - L.y) < L.r * 0.86) {
+      const px = j.x, py = j.y * K;
+      const g = c.createLinearGradient(0, py, 0, py + 46); g.addColorStop(0, 'rgba(40,70,120,0.4)'); g.addColorStop(1, 'rgba(40,70,120,0)');
+      c.fillStyle = g; c.beginPath(); c.ellipse(px, py + 22, 10, 24, 0, 0, Math.PI * 2); c.fill();
+      c.globalCompositeOperation = 'lighter'; c.fillStyle = 'rgba(170,225,255,0.25)'; circulo(c, px, py + 30, 3); c.fill();
+    }
+    c.restore();
+  },
+  desenharEstatico(c, s, t) {
+    const K = CONFIG.K, x = s.x, by = s.y * K, j = Jogo.jogador, rg = s.reage || 0;
+    c.save(); c.lineWidth = 1.3; c.strokeStyle = 'rgba(10,24,48,0.85)';
+    if (s.tipo === 'cristalGelo') {
+      const h = s.alto * (s.grande ? 1.2 : 1);
+      for (const [dx, hh, w] of [[-8, h * 0.65, 6], [8, h * 0.5, 5], [0, h, 7.5]]) {
+        const g = c.createLinearGradient(0, by - hh, 0, by); g.addColorStop(0, '#FFFFFF'); g.addColorStop(0.45, '#A9E0FF'); g.addColorStop(1, '#2F6FB2');
+        c.fillStyle = g; c.beginPath(); c.moveTo(x + dx - w, by); c.lineTo(x + dx - w * 0.55, by - hh * 0.75); c.lineTo(x + dx, by - hh); c.lineTo(x + dx + w * 0.55, by - hh * 0.72); c.lineTo(x + dx + w, by); c.closePath(); c.fill(); c.stroke();
+        c.strokeStyle = 'rgba(255,255,255,0.6)'; c.beginPath(); c.moveTo(x + dx, by - hh); c.lineTo(x + dx - w * 0.2, by - 2); c.stroke(); c.strokeStyle = 'rgba(10,24,48,0.85)';
+      }
+      if (rg > 0.05) { c.globalCompositeOperation = 'lighter'; const g = c.createRadialGradient(x, by - h * 0.5, 0, x, by - h * 0.5, 30 + rg * 20); g.addColorStop(0, `rgba(190,240,255,${(0.5 * rg).toFixed(3)})`); g.addColorStop(1, 'rgba(190,240,255,0)'); c.fillStyle = g; c.fillRect(x - 50, by - h * 0.5 - 50, 100, 100); }
+    } else if (s.tipo === 'pinheiroGelo') {
+      const h = s.alto, transp = j && j.y < s.y && Math.abs(j.x - x) < 26 && j.y > s.y - h / K ? 0.5 : 1;
+      c.globalAlpha = transp;
+      c.fillStyle = '#4A3B36'; c.fillRect(x - 3, by - 10, 6, 10);
+      for (let k = 0; k < 3; k++) { const yy = by - 8 - k * h * 0.26, w = 20 - k * 5; c.fillStyle = '#2E5A6E'; c.beginPath(); c.moveTo(x - w, yy); c.lineTo(x, yy - h * 0.42); c.lineTo(x + w, yy); c.closePath(); c.fill(); c.stroke(); c.fillStyle = '#EAF4FB'; c.beginPath(); c.moveTo(x - w * 0.55, yy - h * 0.18); c.lineTo(x, yy - h * 0.42); c.lineTo(x + w * 0.55, yy - h * 0.18); c.quadraticCurveTo(x, yy - h * 0.12, x - w * 0.55, yy - h * 0.18); c.fill(); }
+    } else if (s.tipo === 'arvoreAnciaGelo') {
+      c.fillStyle = 'rgba(190,230,255,0.35)'; c.beginPath(); c.ellipse(x, by - 50, 46, 58, 0, 0, Math.PI * 2); c.fill(); c.strokeStyle = 'rgba(230,248,255,0.8)'; c.stroke();
+      c.strokeStyle = '#5A4638'; c.lineWidth = 7; c.beginPath(); c.moveTo(x, by); c.lineTo(x, by - 52); c.stroke();
+      c.lineWidth = 3.5; c.beginPath(); c.moveTo(x, by - 40); c.lineTo(x - 22, by - 70); c.moveTo(x, by - 46); c.lineTo(x + 24, by - 74); c.moveTo(x, by - 52); c.lineTo(x - 4, by - 90); c.stroke();
+      for (let k = 0; k < 14; k++) { const a = k * 2.4, rr0 = 12 + (k % 4) * 7; c.fillStyle = k % 3 ? 'rgba(232,160,90,0.85)' : 'rgba(210,90,70,0.85)'; circulo(c, x + Math.cos(a) * rr0 * 1.3, by - 72 + Math.sin(a) * rr0, 4.5); c.fill(); }
+      c.globalCompositeOperation = 'lighter'; c.fillStyle = `rgba(200,240,255,${(0.12 + rg * 0.25).toFixed(3)})`; c.beginPath(); c.ellipse(x, by - 50, 46, 58, 0, 0, Math.PI * 2); c.fill();
+    } else if (s.tipo === 'colunaGelo') {
+      const h = s.alto;
+      c.fillStyle = '#8FA9C6'; c.fillRect(x - 11, by - h, 22, h); c.strokeRect(x - 11, by - h, 22, h);
+      c.fillStyle = '#B7CCE0'; c.fillRect(x - 11, by - h, 8, h);
+      c.fillStyle = '#E8F3FB'; if (s.quebrada) { c.beginPath(); c.moveTo(x - 12, by - h); c.lineTo(x - 2, by - h - 10); c.lineTo(x + 5, by - h - 3); c.lineTo(x + 12, by - h - 8); c.lineTo(x + 12, by - h + 4); c.lineTo(x - 12, by - h + 4); c.closePath(); c.fill(); } else { c.fillRect(x - 15, by - h - 8, 30, 9); c.strokeRect(x - 15, by - h - 8, 30, 9); }
+      c.fillStyle = '#7A96B5'; c.fillRect(x - 14, by - 6, 28, 6); c.strokeRect(x - 14, by - 6, 28, 6);
+      c.strokeStyle = `rgba(150,220,255,${(0.35 + rg * 0.6 + Math.sin(t * 2 + s.semente) * 0.08).toFixed(3)})`; c.lineWidth = 1.4;
+      for (let k = 0; k < 3; k++) { const yy = by - h * 0.3 - k * 14; if (yy < by - h + 6) break; c.beginPath(); c.moveTo(x - 4, yy); c.lineTo(x, yy - 6); c.lineTo(x + 4, yy); c.stroke(); }
+      // gelo escorrendo
+      c.fillStyle = 'rgba(220,242,255,0.8)'; for (let k = 0; k < 3; k++) { const px = x - 8 + k * 7; c.beginPath(); c.moveTo(px - 2, by - h + 1); c.lineTo(px, by - h + 8 + k * 3); c.lineTo(px + 2, by - h + 1); c.fill(); }
+    } else if (s.tipo === 'monumentoGelo') {
+      c.fillStyle = '#7690B0'; c.fillRect(x - 30, by - 14, 60, 14); c.strokeRect(x - 30, by - 14, 60, 14);
+      const g = c.createLinearGradient(x - 18, 0, x + 18, 0); g.addColorStop(0, '#9DB6D2'); g.addColorStop(0.5, '#C9DBEC'); g.addColorStop(1, '#8AA4C2');
+      c.fillStyle = g; c.beginPath(); c.moveTo(x - 20, by - 14); c.lineTo(x - 16, by - 100); c.lineTo(x, by - 114); c.lineTo(x + 16, by - 100); c.lineTo(x + 20, by - 14); c.closePath(); c.fill(); c.stroke();
+      c.fillStyle = '#EEF6FC'; c.beginPath(); c.moveTo(x - 17, by - 96); c.lineTo(x, by - 114); c.lineTo(x + 17, by - 96); c.lineTo(x + 8, by - 92); c.lineTo(x - 6, by - 95); c.closePath(); c.fill();
+      // as três pedras gravadas
+      const cores = ['181,123,255', '150,220,255', '235,250,255'];
+      cores.forEach((cor, k) => { const yy = by - 82 + k * 20; c.fillStyle = `rgba(${cor},${(0.45 + rg * 0.5).toFixed(3)})`; c.beginPath(); c.moveTo(x, yy - 7); c.lineTo(x + 5, yy); c.lineTo(x, yy + 7); c.lineTo(x - 5, yy); c.closePath(); c.fill(); });
+      c.strokeStyle = `rgba(130,200,255,${(0.3 + rg * 0.5).toFixed(3)})`; c.lineWidth = 1; for (let k = 0; k < 4; k++) { c.beginPath(); c.moveTo(x - 12, by - 30 - k * 5); c.lineTo(x + 12, by - 30 - k * 5); c.stroke(); }
+    } else if (s.tipo === 'cristalMae') {
+      const pul = (s.pulso || 0); if (pul > 0) s.pulso = Math.max(0, pul - 1 / 90);
+      c.globalCompositeOperation = 'lighter'; const gl = c.createRadialGradient(x, by - 60, 0, x, by - 60, 110 + pul * 60); gl.addColorStop(0, `rgba(170,230,255,${(0.35 + rg * 0.25 + pul * 0.4).toFixed(3)})`); gl.addColorStop(1, 'rgba(170,230,255,0)'); c.fillStyle = gl; c.fillRect(x - 180, by - 240, 360, 360); c.globalCompositeOperation = 'source-over';
+      for (const [dx, hh, w] of [[-20, 70, 11], [20, 60, 10], [-8, 92, 13], [10, 104, 14], [0, 120, 15]]) {
+        const g = c.createLinearGradient(0, by - hh, 0, by); g.addColorStop(0, '#FFFFFF'); g.addColorStop(0.4, '#B6E7FF'); g.addColorStop(1, '#2A64A8');
+        c.fillStyle = g; c.beginPath(); c.moveTo(x + dx - w, by); c.lineTo(x + dx - w * 0.5, by - hh * 0.8); c.lineTo(x + dx, by - hh); c.lineTo(x + dx + w * 0.5, by - hh * 0.78); c.lineTo(x + dx + w, by); c.closePath(); c.fill(); c.stroke();
+      }
+    } else if (s.tipo === 'marcoGelo') {
+      c.fillStyle = '#8EA6C2'; c.beginPath(); c.moveTo(x - 14, by); c.lineTo(x - 12, by - 34); c.quadraticCurveTo(x, by - 44, x + 12, by - 34); c.lineTo(x + 14, by); c.closePath(); c.fill(); c.stroke();
+      c.fillStyle = '#EEF6FC'; c.beginPath(); c.moveTo(x - 12, by - 34); c.quadraticCurveTo(x, by - 44, x + 12, by - 34); c.quadraticCurveTo(x, by - 38, x - 12, by - 34); c.fill();
+      c.strokeStyle = `rgba(90,150,210,${(0.6 + rg * 0.3).toFixed(3)})`; c.lineWidth = 1.2; for (let k = 0; k < 3; k++) { c.beginPath(); c.moveTo(x - 7, by - 26 + k * 7); c.lineTo(x + 7, by - 26 + k * 7); c.stroke(); }
+      if (s.mirante) { c.fillStyle = '#6C86A8'; c.fillRect(x + 16, by - 24, 4, 24); c.fillStyle = '#C9D8E8'; c.fillRect(x + 12, by - 28, 12, 5); }
+    } else if (s.tipo === 'rochaGelo') {
+      const h = s.alto;
+      c.fillStyle = '#5F7898'; c.beginPath(); c.moveTo(x - 18, by); c.lineTo(x - 12, by - h); c.lineTo(x + 6, by - h - 6); c.lineTo(x + 18, by - h * 0.4); c.lineTo(x + 18, by); c.closePath(); c.fill(); c.stroke();
+      c.fillStyle = '#E6F1FA'; c.beginPath(); c.moveTo(x - 13, by - h + 2); c.lineTo(x + 6, by - h - 6); c.lineTo(x + 15, by - h * 0.5); c.lineTo(x, by - h + 4); c.closePath(); c.fill();
+    } else if (s.tipo === 'portalGlacial') {
+      c.fillStyle = '#8FA9C6'; c.fillRect(x - 34, by - 6, 68, 6); c.strokeRect(x - 34, by - 6, 68, 6);
+      for (const dx of [-30, 30]) { c.fillStyle = '#B9D0E6'; c.beginPath(); c.moveTo(x + dx - 7, by - 4); c.lineTo(x + dx - 4, by - 92); c.lineTo(x + dx, by - 100); c.lineTo(x + dx + 4, by - 92); c.lineTo(x + dx + 7, by - 4); c.closePath(); c.fill(); c.stroke(); }
+      c.save(); c.translate(x, by - 50);
+      const g = c.createRadialGradient(0, 0, 2, 0, 0, 42); g.addColorStop(0, 'rgba(245,252,255,0.95)'); g.addColorStop(0.55, 'rgba(120,200,255,0.8)'); g.addColorStop(1, 'rgba(110,130,230,0.55)');
+      c.fillStyle = g; elipse(c, 0, 0, 22, 40); c.fill(); c.strokeStyle = '#E8F8FF'; c.lineWidth = 2.5; elipse(c, 0, 0, 22, 40); c.stroke();
+      c.strokeStyle = 'rgba(255,255,255,0.6)'; c.lineWidth = 1.3; for (let k = 0; k < 3; k++) { c.beginPath(); c.ellipse(0, 0, 15 - k * 4, 30 - k * 8, 0, t * (1.4 + k) + k, t * (1.4 + k) + k + 2.2); c.stroke(); }
+      c.restore();
+    } else if (s.tipo === 'portaoGelo') {
+      c.fillStyle = '#7E98B8'; for (const dx of [-44, 44]) { c.fillRect(x + dx - 10, by - 120, 20, 120); c.strokeRect(x + dx - 10, by - 120, 20, 120); }
+      c.fillStyle = '#93AECB'; c.beginPath(); c.moveTo(x - 56, by - 118); c.quadraticCurveTo(x, by - 170, x + 56, by - 118); c.lineTo(x + 56, by - 106); c.quadraticCurveTo(x, by - 152, x - 56, by - 106); c.closePath(); c.fill(); c.stroke();
+      const g = c.createLinearGradient(x - 34, 0, x + 34, 0); g.addColorStop(0, 'rgba(160,215,250,0.85)'); g.addColorStop(0.5, 'rgba(225,245,255,0.92)'); g.addColorStop(1, 'rgba(150,205,245,0.85)');
+      c.fillStyle = g; c.beginPath(); c.moveTo(x - 34, by); c.lineTo(x - 34, by - 106); c.quadraticCurveTo(x, by - 140, x + 34, by - 106); c.lineTo(x + 34, by); c.closePath(); c.fill(); c.stroke();
+      c.strokeStyle = 'rgba(255,255,255,0.7)'; c.lineWidth = 1; for (let k = 0; k < 6; k++) { c.beginPath(); c.moveTo(x - 30 + k * 11, by - 4); c.lineTo(x - 26 + k * 11, by - 100 + (k % 2) * 14); c.stroke(); }
+      // o encaixe com o formato da Pedra do Gelo
+      c.fillStyle = 'rgba(30,60,110,0.8)'; c.beginPath(); c.moveTo(x, by - 82); c.lineTo(x + 7, by - 72); c.lineTo(x + 6, by - 58); c.lineTo(x, by - 50); c.lineTo(x - 6, by - 58); c.lineTo(x - 7, by - 72); c.closePath(); c.fill();
+      c.globalCompositeOperation = 'lighter'; c.fillStyle = `rgba(170,230,255,${(0.25 + Math.sin(t * 2) * 0.15).toFixed(3)})`; circulo(c, x, by - 66, 12); c.fill();
+    } else if (s.tipo === 'paredeGelo') {
+      for (let k = -3; k <= 3; k++) { const h = 60 + ((k * 37 + 101) % 40), px = x + k * 13; const g = c.createLinearGradient(0, by - h, 0, by); g.addColorStop(0, '#F4FBFF'); g.addColorStop(1, '#7FB3DC'); c.fillStyle = g; c.beginPath(); c.moveTo(px - 9, by); c.lineTo(px - 5, by - h * 0.8); c.lineTo(px, by - h); c.lineTo(px + 6, by - h * 0.75); c.lineTo(px + 9, by); c.closePath(); c.fill(); c.stroke(); }
+    } else if (s.tipo === 'montanhaGelo') {
+      const S = s.s, Rb = 95 * S, h = 180 * S;
+      const atras = j && j.y < s.y && j.y > s.y - (h + 30) / K && Math.abs(j.x - x) < Rb;
+      c.globalAlpha = atras ? 0.45 : 1;
+      c.fillStyle = '#5E7DA4'; c.beginPath(); c.moveTo(x - Rb, by); c.lineTo(x - Rb * 0.35, by - h * 0.7); c.lineTo(x - Rb * 0.1, by - h); c.lineTo(x + Rb * 0.3, by - h * 0.62); c.lineTo(x + Rb * 0.55, by - h * 0.75); c.lineTo(x + Rb, by); c.closePath(); c.fill(); c.stroke();
+      c.fillStyle = '#4A678D'; c.beginPath(); c.moveTo(x - Rb * 0.1, by - h); c.lineTo(x + Rb * 0.3, by - h * 0.62); c.lineTo(x + Rb * 0.55, by - h * 0.75); c.lineTo(x + Rb, by); c.lineTo(x + Rb * 0.1, by); c.closePath(); c.fill();
+      c.fillStyle = '#F1F8FD'; c.beginPath(); c.moveTo(x - Rb * 0.35, by - h * 0.7); c.lineTo(x - Rb * 0.1, by - h); c.lineTo(x + Rb * 0.3, by - h * 0.62); c.lineTo(x + Rb * 0.12, by - h * 0.66); c.lineTo(x - Rb * 0.02, by - h * 0.56); c.lineTo(x - Rb * 0.18, by - h * 0.64); c.closePath(); c.fill();
+      c.fillStyle = '#E2EEF8'; c.beginPath(); c.moveTo(x + Rb * 0.42, by - h * 0.66); c.lineTo(x + Rb * 0.55, by - h * 0.75); c.lineTo(x + Rb * 0.7, by - h * 0.52); c.lineTo(x + Rb * 0.5, by - h * 0.56); c.closePath(); c.fill();
+      c.fillStyle = 'rgba(235,245,252,0.7)'; c.beginPath(); c.ellipse(x, by - 2, Rb * 0.95, 10, 0, 0, Math.PI * 2); c.fill();
+    }
+    c.restore();
+  },
+  // por cima de tudo no mundo: brilhos, escuridão da caverna, névoa e nomes das regiões
+  desenharMundo(c, t, j) {
+    const K = CONFIG.K;
+    c.save(); c.globalCompositeOperation = 'lighter';
+    const brilho = (x, y, r, cor, a) => { if (a <= 0.01) return; const g = c.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, cor.replace('A', a.toFixed(3))); g.addColorStop(1, cor.replace('A', 0)); c.fillStyle = g; c.fillRect(x - r, y - r, r * 2, r * 2); };
+    for (const s of Mundo.estaticos) {
+      if (s.tipo === 'portalGlacial') brilho(s.x, s.y * K - 50, 90, 'rgba(160,225,255,A)', 0.35 + Math.sin(t * 2) * 0.08);
+      else if (s.tipo === 'cristalGelo' && s.grande) brilho(s.x, s.y * K - 30, 55, 'rgba(140,210,255,A)', 0.22 + (s.reage || 0) * 0.2);
+      else if (s.tipo === 'monumentoGelo') brilho(s.x, s.y * K - 60, 70, 'rgba(160,215,255,A)', 0.1 + (s.reage || 0) * 0.2);
+      else if (s.tipo === 'portaoGelo') brilho(s.x, s.y * K - 70, 80, 'rgba(170,230,255,A)', 0.18);
+    }
+    const e = Vazio.estacaoPerto;
+    if (e && Fluxo.estado === 'jogando') brilho(e.x, e.y * K - 30, 60, 'rgba(230,248,255,A)', 0.2 + Math.sin(t * 5) * 0.06);
+    c.restore();
+    // a caverna é escura: só os cristais e a pedra do seu colar iluminam
+    const cv = this.reg('caverna'), dj = j ? Math.hypot(j.x - cv.x, j.y - cv.y) : 999;
+    c.save(); c.beginPath(); c.ellipse(cv.x, cv.y * K - 8, cv.r + 42, (cv.r + 36) * K, 0, 0, Math.PI * 2); c.clip();
+    c.fillStyle = 'rgba(4,12,32,0.38)'; c.fillRect(cv.x - cv.r - 60, cv.y * K - cv.r - 60, (cv.r + 60) * 2, (cv.r + 60) * 2);
+    c.globalCompositeOperation = 'lighter';
+    if (j && dj < cv.r + 40) { const g = c.createRadialGradient(j.x, j.y * K - 30, 0, j.x, j.y * K - 30, 70); g.addColorStop(0, 'rgba(150,215,255,0.22)'); g.addColorStop(1, 'rgba(150,215,255,0)'); c.fillStyle = g; c.fillRect(j.x - 70, j.y * K - 100, 140, 140); }
+    c.restore();
+    // névoa baixa no lago e na caverna
+    c.save();
+    for (const [rid, a] of [['lago', 0.16], ['caverna', 0.12], ['gruta', 0.12]]) {
+      const r = this.reg(rid);
+      for (let k = 0; k < 3; k++) { const fx = r.x + Math.sin(t * 0.15 + k * 2) * r.r * 0.4, fy = r.y * K + Math.cos(t * 0.12 + k) * r.r * K * 0.3; const g = c.createRadialGradient(fx, fy, 0, fx, fy, r.r * 0.7); g.addColorStop(0, `rgba(225,240,252,${a})`); g.addColorStop(1, 'rgba(225,240,252,0)'); c.fillStyle = g; c.fillRect(fx - r.r * 0.7, fy - r.r * 0.7, r.r * 1.4, r.r * 1.4); }
+    }
+    c.restore();
+    this.desenharRotulos(c, t, j);
+  },
+  desenharRotulos(c, t, j) {
+    const K = CONFIG.K, g = this.dados();
+    for (const r of GL_REGIOES) {
+      if (r.secreta && !g.visitadas.includes(r.id)) continue;
+      if (!j || Math.hypot(j.x - r.x, j.y - r.y) > r.r + 320) continue;
+      const ly = r.y * K - r.r * K - (r.selada ? 26 : 10);
+      c.save(); c.textAlign = 'center'; c.textBaseline = 'middle'; c.lineWidth = 3; c.strokeStyle = 'rgba(6,18,40,0.85)';
+      c.font = '400 13px "Marcellus SC", Georgia, serif'; c.globalAlpha = 0.9;
+      c.strokeText(r.nome, r.x, ly); c.fillStyle = r.selada ? '#C3D3E6' : '#F2FAFF'; c.fillText(r.nome, r.x, ly);
+      if (r.selada) { c.font = '500 10.5px Sora, system-ui, sans-serif'; const txt = 'Selada · uma região para o futuro'; c.strokeText(txt, r.x, ly + 15); c.fillStyle = '#B5C8DE'; c.fillText(txt, r.x, ly + 15); }
+      c.restore();
+    }
+  },
+  // neve, nevasca e frio na tela
+  desenharTela(c, t) {
+    const w = Render.w, h = Render.h, n = this.neve, cam = Jogo.cam;
+    if (!this.flocos) { const r2 = aleatorio(123); this.flocos = Array.from({ length: 170 }, () => ({ x: r2(), y: r2(), r: 0.8 + r2() * 2.2, v: 0.4 + r2() * 0.9, f: r2() * 6, p: 0.2 + r2() * 0.6 })); }
+    const qtd = Math.round(40 + 130 * n), vento = 30 + n * 170, mod = (v, m) => ((v % m) + m) % m;
+    c.save();
+    for (let i = 0; i < qtd; i++) {
+      const f = this.flocos[i];
+      const x = mod(f.x * w + t * vento * f.v + Math.sin(t * f.p + f.f) * 18 - cam.x * f.p * 0.3, w + 20) - 10, y = mod(f.y * h + t * (40 + n * 60) * f.v - cam.y * CONFIG.K * f.p * 0.3, h + 20) - 10;
+      c.fillStyle = `rgba(245,251,255,${(0.5 + f.p * 0.5).toFixed(3)})`;
+      if (n > 0.6 && f.r > 2) { c.strokeStyle = 'rgba(245,251,255,0.45)'; c.lineWidth = f.r * 0.7; c.beginPath(); c.moveTo(x, y); c.lineTo(x - vento * 0.05, y - 3); c.stroke(); }
+      else { c.beginPath(); c.arc(x, y, f.r, 0, Math.PI * 2); c.fill(); }
+    }
+    // nevasca: véu branco e rajadas de vento
+    if (n > 0.5) {
+      const a = (n - 0.5) * 0.3;
+      c.fillStyle = `rgba(225,238,250,${a.toFixed(3)})`; c.fillRect(0, 0, w, h);
+      c.strokeStyle = `rgba(255,255,255,${(a * 0.9).toFixed(3)})`; c.lineWidth = 1.2;
+      for (let k = 0; k < 8; k++) { const y = mod(k * 97 + t * 23, h), x = mod(k * 213 + t * 420, w + 300) - 150; c.beginPath(); c.moveTo(x, y); c.quadraticCurveTo(x + 60, y - 6, x + 140, y + 2); c.stroke(); }
+    }
+    // vinheta fria
+    const g = c.createRadialGradient(w / 2, h / 2, Math.min(w, h) * 0.35, w / 2, h / 2, Math.max(w, h) * 0.75);
+    g.addColorStop(0, 'rgba(120,180,230,0)'); g.addColorStop(1, `rgba(${this.regiaoAtual === 'caverna' ? '6,16,40,0.45' : '150,200,240,0.22'})`);
+    c.fillStyle = g; c.fillRect(0, 0, w, h);
+    c.restore();
+  },
+});
+
+// ---- ligações com o Vazio (o reino usa a mesma base de dimensão) ----
+{
+  const V = Vazio;
+  const andOrig = V.andavel;
+  V.andavel = function (x, y, m) { return Glacial.ativo ? Glacial.andavel(x, y, m) : andOrig.call(this, x, y, m); };
+  const depOrig = V.depois;
+  V.depois = function (j) {
+    if (!Glacial.ativo || !this.ativo) { depOrig.call(this, j); return; }
+    if (Glacial.andavel(j.x, j.y)) return;
+    if (Glacial.andavel(j.x, this.py)) j.y = this.py;
+    else if (Glacial.andavel(this.px, j.y)) j.x = this.px;
+    else if (Glacial.andavel(this.px, this.py)) { j.x = this.px; j.y = this.py; }
+    else { j.x = 900; j.y = 1205; j.kx = 0; j.ky = 0; }
+  };
+  const atuOrig = V.atualizar;
+  V.atualizar = function (dt) {
+    if (Glacial.ativo && this.ativo) { this.tempo += dt; Glacial.atualizar(dt); return; }
+    const j = Jogo.jogador;
+    // ao voltar ao altar depois da Convergência, o pedestal reconhece você: uma nova etapa começa
+    if (this.ativo && Gelo.disponivel() && !Convergencia.entrouAltar && this.pronta(this.regiao('altar')) && Math.hypot(j.x - ALTAR.x, j.y - ALTAR.y) < ALTAR.r) {
+      Convergencia.entrouAltar = true;
+      Hud.anunciar('Altar da Convergência', 'O pedestal reage', 'A luz no centro do altar pulsa mais forte com a sua presença.', '', 2.6);
+      Som.tocar('geloCristal'); vibrar([20, 30, 20]);
+      setTimeout(() => { if (this.ativo && Gelo.disponivel() && !Cena.atual) { Hud.aviso(ehToque() ? 'Toque em “Tocar o pedestal” perto do centro do altar.' : 'Chegue perto do centro do altar e aperte T para tocar o pedestal.', false); Hud.tAviso = 6; } }, 2700);
+    }
+    atuOrig.call(this, dt);
+    if (!this.ativo) return;
+    // pontos que só existem em certas etapas (o portal de gelo)
+    const e = this.estacaoPerto;
+    if (e && e.cond && !e.cond()) {
+      let perto = null, md = 85 ** 2;
+      for (const s of this.ESTACOES) { if (!this.pronta(this.regiao(s.regiao)) || (s.cond && !s.cond())) continue; const q = dist2(j, s); if (q < md) { md = q; perto = s; } }
+      this.estacaoPerto = perto;
+    }
+    // o pedestal reage: partículas frias perto dele
+    if (Gelo.disponivel() && (Convergencia.perto || 0) > 0.2 && Math.random() < dt * 14 * Convergencia.perto) { const a = Math.random() * Math.PI * 2; Efeitos.particula(ALTAR.x + Math.cos(a) * 30, ALTAR.y + Math.sin(a) * 20, 40 + Math.random() * 40, { vx: 0, vy: 0, vz: 30, cor: '#DFF6FF', vida: 1.1, tam: 1.6, aditivo: true, forma: 'cristal' }); }
+  };
+  const montOrig = V.montar;
+  V.montar = function () { Glacial.limpar(); montOrig.call(this); };
+  const aposOrig = V.aposEntrar;
+  V.aposEntrar = function () {
+    aposOrig.call(this);
+    const d = Gelo.dados();
+    let msg = null;
+    if (Gelo.disponivel()) msg = 'O pedestal do Altar da Convergência está chamando você. Algo novo está para nascer.';
+    else if (d.formada && !d.vista) msg = 'A Pedra do Gelo espera no Altar da Convergência.';
+    else if (d.formada && !Glacial.dados().entradas) msg = 'O portal de gelo no arco do Altar da Convergência leva ao Reino Glacial.';
+    if (msg) setTimeout(() => { if (this.ativo && !Glacial.ativo && !Cena.atual) { Hud.aviso(msg, false); Hud.tAviso = 6; } }, 3000);
+  };
+  const desOrig = V.desmontar;
+  V.desmontar = function () { Glacial.limpar(); desOrig.call(this); };
+  const ceuOrig = V.desenharCeu;
+  V.desenharCeu = function (c, t) { if (Glacial.ativo) Glacial.desenharCeu(c, t); else ceuOrig.call(this, c, t); };
+  const ilhOrig = V.desenharIlhas;
+  V.desenharIlhas = function (c, t) { if (Glacial.ativo) Glacial.desenharTerreno(c, t); else ilhOrig.call(this, c, t); };
+  const estOrig = V.desenharEstatico;
+  V.desenharEstatico = function (c, s, t) { if (Glacial.ativo) Glacial.desenharEstatico(c, s, t); else estOrig.call(this, c, s, t); };
+  const mundoOrig = V.desenharMundo;
+  V.desenharMundo = function (c, t, j) {
+    if (Glacial.ativo) { Glacial.desenharMundo(c, t, j); return; }
+    mundoOrig.call(this, c, t, j);
+    if (Cena.atual && Cena.atual.tipo === 'geloNasce') desenharNascimento(c, t, Cena.atual);
+  };
+  const textoOrig = V.textoHud;
+  V.textoHud = function () { return Glacial.ativo ? Glacial.textoHud() : textoOrig.call(this); };
+  // a travessia: véu de gelo e flocos em vez do redemoinho violeta
+  const trOrig = V.atualizarTransicao;
+  V.atualizarTransicao = function (dt) {
+    const tr = this.transicao;
+    if (!tr || (tr.tipo !== 'glacial' && tr.tipo !== 'voltaGlacial')) { trOrig.call(this, dt); return; }
+    const j = Jogo.jogador, meio = tr.dur * 0.5;
+    tr.t += dt;
+    j.fadeVazio = tr.trocou ? clamp(1 - (tr.t - meio) / meio, 0, 1) : clamp(tr.t / meio, 0, 1);
+    if (Math.random() < dt * 80) { const a = Math.random() * Math.PI * 2, r = 40 + Math.random() * 100; Efeitos.particula(tr.x + Math.cos(a) * r, tr.y + Math.sin(a) * r * 0.8, 20 + Math.random() * 60, { vx: -Math.cos(a) * r * 2, vy: -Math.sin(a) * r * 1.6, vz: 10, cor: Math.random() < 0.6 ? '#F2FAFF' : '#9FDCFF', vida: 0.45, tam: 2, aditivo: true, forma: 'cristal' }); }
+    if (!tr.trocou && tr.t >= meio) {
+      tr.trocou = true;
+      if (tr.tipo === 'glacial') Glacial.montar(); else Glacial.desmontar();
+      tr.x = j.x; tr.y = j.y; Jogo.flashTela = Math.max(Jogo.flashTela, 0.5);
+    }
+    if (tr.t >= tr.dur) {
+      j.fadeVazio = 0; this.transicao = null; Fluxo.estado = 'jogando'; Jogo.camZoomAlvo = 1;
+      if (tr.tipo === 'glacial') Glacial.aposEntrar(); else Glacial.aposVoltar();
+    }
+  };
+  // neve sobre a tela inteira
+  const telaOrig = Ext.desenharTela;
+  Ext.desenharTela = function (c, t) { if (Glacial.ativo && Vazio.ativo) Glacial.desenharTela(c, t); telaOrig.call(this, c, t); };
+  // câmera: no reino ela respeita as bordas do mapa (a câmera livre é só do altar do Vazio)
+  const camOrig = atualizarCamera;
+  atualizarCamera = function (dt) {
+    camOrig(dt);
+    if (!Glacial.ativo) return;
+    const cam = Jogo.cam, W = CONFIG.mundo.largura, H = CONFIG.mundo.altura, z = Render.zoomAtual();
+    const meiaW = Render.w / (2 * z), meiaH = Render.h / (2 * z * CONFIG.K);
+    cam.x = meiaW * 2 >= W ? W / 2 : clamp(cam.x, meiaW, W - meiaW);
+    cam.y = meiaH * 2 >= H ? H / 2 : clamp(cam.y, meiaH, H - meiaH);
+  };
+}
+
+/* ---------- 26d. TELAS ---------- */
+Telas.pedraGelo = function (novo, aoFechar) {
+  const d = Gelo.dados(), quando = d.formadaEm ? new Date(d.formadaEm).toLocaleDateString('pt-BR') : '—';
+  this.abrir(`<p class="pre">${novo ? 'Terceira pedra descoberta' : 'Fonte de poder'}</p>
+    <h2 class="titulo-cartao">Pedra do Gelo</h2>
+    <div class="pedra-gelo-grande">${svgPedraGelo('pgc')}</div>
+    <p class="texto">Nascida da energia das onze relíquias reunidas no Altar da Convergência. Azul e branca, translúcida, feita de camadas de cristal, com um frio que circula por dentro como um rio lento.</p>
+    <ul class="recompensas recompensas--gelo">
+      <li><span>Estado</span><b>Descoberta</b></li>
+      <li><span>Poderes</span><b>Adormecidos</b></li>
+      <li><span>Novo mundo</span><b>Reino Glacial</b></li>
+      <li><span>Descoberta em</span><b>${quando}</b></li>
+    </ul>
+    <p class="gelo-adormecido">“O poder desta pedra ainda permanece adormecido.”</p>
+    ${novo ? '<p class="nota">Ela já está com você, ao lado da Ametista no colar, mas ainda não responde a comandos. No arco do altar, o véu de energia virou gelo: um portal se abriu.</p>' : '<p class="nota">Ela está com você, mas ainda não responde a comandos.</p>'}
+    <div class="acoes-cartao"><button class="btn btn--primario" id="b-gelo-ok" data-foco>${novo ? 'Seguir' : 'Voltar'}</button></div>`, (cam) => {
+    cam.querySelector('#b-gelo-ok').addEventListener('click', () => { Som.tocar('clique'); aoFechar(); });
+  }, 'cartao--poder cartao--gelo');
+};
+Telas.loreGlacial = function (info, novo, prog) {
+  const r = Glacial.reg(info.regiao);
+  this.abrir(`<p class="pre">Reino Glacial · ${r ? r.nome : ''}</p>
+    <h2 class="titulo-cartao">${info.titulo}</h2>
+    <p class="texto">${info.texto}</p>
+    <div class="conv-prog conv-prog--gelo"><div class="conv-prog__rot"><span>Exploração do Reino Glacial</span><b>${prog.pct}%</b></div><div class="conv-prog__barra"><i style="width:${prog.pct}%"></i></div>
+      <p class="conv-prog__obj">Regiões ${prog.regioes} de ${prog.totalRegioes} · Pontos de interesse ${prog.lidos} de ${prog.totalLidos}${novo ? ' · novo' : ''}</p></div>
+    <div class="acoes-cartao"><button class="btn btn--primario" id="b-gl-ok" data-foco>Continuar</button></div>`, (cam) => {
+    // o toque que abriu o cartão não pode fechá-lo logo em seguida (clique fantasma do celular)
+    const aberto = performance.now();
+    cam.querySelector('#b-gl-ok').addEventListener('click', () => { if (performance.now() - aberto < 450) return; Som.tocar('clique'); Vazio.fecharCartao(); });
+  }, 'cartao--poder cartao--gelo');
+};
+// aba da terceira pedra na Evolução (descoberta, mas sem nada para aprender)
+Telas.montarGelo = function (painel) {
+  const d = Gelo.dados(), quando = d.formadaEm ? new Date(d.formadaEm).toLocaleDateString('pt-BR') : '—';
+  const nos = (n) => Array.from({ length: n }, () => `<div class="gelo-no" aria-label="Habilidade adormecida">${svgIcone(ICONE_CADEADO)}<span>Adormecida</span></div>`).join('');
+  painel.innerHTML = `${this.abasPedras('gelo')}
+    <div class="gelo-cab"><div class="gelo-cab__pedra">${svgPedraGelo('pgm')}</div><div><strong>Pedra do Gelo</strong><span>Descoberta · poderes adormecidos</span></div></div>
+    <div class="evo-info evo-info--gelo"><span><small>Estado</small><b>Descoberta</b></span><span><small>Poderes</small><b>Adormecidos</b></span><span><small>Descoberta em</small><b>${quando}</b></span></div>
+    <p class="secao">Origem</p>
+    <p class="gelo-texto">Formada no Altar da Convergência, no Vazio, a partir da energia das onze relíquias dos chefes da Ametista e da Ilusão. É a terceira fonte de poder, independente das outras duas.</p>
+    <p class="secao">Aparência</p>
+    <p class="gelo-texto">Cristal azul e branco, translúcido e brilhante, em camadas. Reflexos azulados e prateados, flocos de neve que giram em volta e uma energia fria que circula no núcleo.</p>
+    <p class="gelo-adormecido">“O poder desta pedra ainda permanece adormecido.”</p>
+    <p class="secao">Árvore de habilidades · prévia</p>
+    <div class="gelo-arvore">${nos(6)}</div>
+    <p class="nota">As habilidades desta pedra ainda não podem ser aprendidas, equipadas nem usadas. Elas vão despertar numa próxima etapa da história.</p>`;
+  painel.querySelectorAll('.aba[data-pedra]').forEach((b) => b.addEventListener('click', () => { if (b.disabled) return; Som.tocar('clique'); this.montarEvolucao(painel, b.dataset.pedra); }));
+};
+Telas.abasPedras = function (sel) {
+  const pl = (p) => Perfil.pontosLivres(p);
+  return `<div class="abas abas--3" role="tablist">
+    <button class="aba" data-pedra="ametista" aria-selected="${sel === 'ametista'}">Ametista${pl('ametista') > 0 ? `<span class="aba__bolha">${pl('ametista')}</span>` : ''}</button>
+    <button class="aba aba--ilusao" data-pedra="ilusao" aria-selected="${sel === 'ilusao'}" ${Ilusao.liberada() ? '' : 'disabled'}>${Ilusao.liberada() ? 'Ilusão' : 'Ilusão · oculta'}${Ilusao.liberada() && pl('ilusao') > 0 ? `<span class="aba__bolha">${pl('ilusao')}</span>` : ''}</button>
+    <button class="aba aba--gelo" data-pedra="gelo" aria-selected="${sel === 'gelo'}" ${Gelo.formada() ? '' : 'disabled'}>${Gelo.formada() ? 'Gelo' : 'Gelo · oculta'}</button></div>`;
+};
+{
+  const evoOrig = Telas.montarEvolucao;
+  Telas.montarEvolucao = function (painel, pedra, poder) {
+    if (pedra === 'gelo') { if (Gelo.formada()) { this.montarGelo(painel); return; } pedra = undefined; }
+    evoOrig.call(this, painel, pedra, poder);
+    // três abas: Ametista, Ilusão e Gelo
+    const abas = painel.querySelector('.abas');
+    if (!abas || abas.querySelector('[data-pedra="gelo"]')) return;
+    const sel = abas.querySelector('[aria-selected="true"]'), atual = sel ? sel.dataset.pedra : 'ametista';
+    abas.outerHTML = this.abasPedras(atual);
+    painel.querySelectorAll('.aba[data-pedra]').forEach((b) => b.addEventListener('click', () => { if (b.disabled) return; Som.tocar('clique'); this.montarEvolucao(painel, b.dataset.pedra); }));
+  };
+}
+// mundos e fontes de poder (na pausa)
+Glacial.mundoAtual = function () {
+  if (Glacial.ativo) return 'glacial';
+  if (Vazio.ativo) return Vazio.regiaoAtual === 'altar' ? 'altar' : 'vazio';
+  return Mundo.tema === 'reflexo' ? 'reflexo' : 'inicial';
+};
+Telas.montarMundos = function (painel) {
+  const aqui = Glacial.mundoAtual(), g = Glacial.dados(), pr = Glacial.progresso(), camp = Perfil.dados.campanha || {};
+  const item = (cls, icone, nome, estado, sub, id) => `<div class="mundo-item ${cls}${id && id === aqui ? ' mundo-item--aqui' : ''}"><div class="mundo-item__icone">${icone}</div><div><b>${nome}</b>${sub ? `<small>${sub}</small>` : ''}</div><span class="mundo-item__st">${id && id === aqui ? 'Você está aqui' : estado}</span></div>`;
+  const ic = (cor) => `<svg viewBox="0 0 24 24"><path d="M12 2.5l6 6.2-1 9.3-5 3.5-5-3.5-1-9.3z" fill="${cor}" stroke="#fff" stroke-opacity=".6" stroke-width="1"/></svg>`;
+  const icm = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+  const ilu = Ilusao.liberada(), vazio = Perfil.liberou('vazio'), altar = !!camp.devorador, gelo = Gelo.formada();
+  painel.innerHTML = `<p class="secao">Fontes de poder</p>
+    <div class="mundos-lista">
+      ${item('', ic('#A46BFF'), 'Ametista', 'Desperta', 'Poderes ativos', null)}
+      ${item(ilu ? '' : 'mundo-item--trav', ic('#8FD8FF'), 'Pedra da Ilusão', ilu ? `Nível ${Ilusao.nivel()}` : 'Oculta', ilu ? 'Poderes ativos' : 'Ainda não despertou', null)}
+      ${item(gelo ? 'mundo-item--gelo' : 'mundo-item--trav', gelo ? svgPedraGelo('pgw') : ic('#5A6A80'), gelo ? 'Pedra do Gelo' : 'Terceira pedra', gelo ? 'Descoberta' : 'Desconhecida', gelo ? 'Poderes adormecidos' : 'Ainda não nasceu', null)}
+    </div>
+    <p class="secao">Mundos</p>
+    <div class="mundos-lista">
+      ${item('', icm('<path d="M3 20h18M5 20V10l7-6 7 6v10"/>'), 'Mundo da Ametista', 'Aberto', 'Fase 1 · onde a jornada começou', 'inicial')}
+      ${item(ilu ? '' : 'mundo-item--trav', icm('<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 8l6 8"/>'), 'Mundo do Reflexo', ilu ? 'Aberto' : 'Bloqueado', 'Fase 2 · terra da Pedra da Ilusão', 'reflexo')}
+      ${item(vazio ? '' : 'mundo-item--trav', icm('<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/>'), 'Vazio', vazio ? 'Aberto' : 'Bloqueado', 'Sua dimensão: Câmara, Arena, Ateliê e Galeria', 'vazio')}
+      ${item(altar ? '' : 'mundo-item--trav', icm('<path d="M5 20h14M7 20v-8M17 20v-8M5 12c2-5 12-5 14 0"/>'), 'Altar da Convergência', altar ? (Convergencia.dados().concluida ? 'Convergido' : 'Aberto') : 'Bloqueado', 'No Vazio, a oeste da Câmara', 'altar')}
+      ${item(g.desbloqueado ? 'mundo-item--gelo' : 'mundo-item--trav', icm('<path d="M3 19l6-9 4 5 3-4 5 8z"/><path d="M12 3v4M10 5h4"/>'), 'Reino Glacial', g.desbloqueado ? `${pr.pct}% explorado` : 'Desconhecido', g.desbloqueado ? `Regiões ${pr.regioes}/${pr.totalRegioes} · Pontos de interesse ${pr.lidos}/${pr.totalLidos} · Passagens seladas vistas ${g.selosVistos.length}/3` : 'Ainda não descoberto', 'glacial')}
+    </div>
+    ${g.desbloqueado ? `<p class="nota">Para ir ao Reino Glacial: entre no Vazio e atravesse o portal de gelo no arco do Altar da Convergência.</p>` : ''}`;
+};
+{
+  const jogoOrig = Telas.montarJogo;
+  Telas.montarJogo = function (painel) {
+    jogoOrig.call(this, painel);
+    if (!Ilusao.liberada() && !Perfil.liberou('vazio')) return;
+    const aqui = { glacial: 'Reino Glacial', altar: 'Altar da Convergência', vazio: 'Vazio', reflexo: 'Mundo do Reflexo', inicial: 'Mundo da Ametista' }[Glacial.mundoAtual()];
+    painel.insertAdjacentHTML('afterbegin', `<button class="btn btn--secundario" id="b-mundos" style="width:100%;margin-bottom:10px">Mundos e pedras · ${aqui}</button>`);
+    painel.querySelector('#b-mundos').addEventListener('click', () => { Som.tocar('clique'); this.avulso('Mundos e pedras', (pn) => this.montarMundos(pn), () => this.pausa('jogo')); });
+  };
+}
+
 /* ========== 19. LOOP ========== */
 const PASSO = 1 / 60;
 let ultimoQuadro = performance.now(), acumulado = 0;
@@ -12665,7 +14406,7 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) { if 
   Telas.abertura();
   requestAnimationFrame(quadro);
   // acesso para testes automáticos
-  window.__ametista = { IluAv, ChefesIlu, Reflexo, Pesadelo, Distorcedor, EcoIlu, DEF_REVANCHE, PAGINAS_ILUSAO, Entrada, Gravidade, Ilusionista, Espelho, Tempestade, Colosso, Guardiao, Mundo, Jogo, Fluxo, Telecinese, Rajada, Movimento, Progressao, Chefe, Cena, Combate, CONFIG, Render, TIPOS_INIMIGO, Salvamento, Perfil, Escudo, Explosao, Vesper, Soberano, Telas, Hud, Visual, novoInimigo, soltarEnxame, TK, Supremacia, Vazio, HudExt, Combate2: Combate, Ilusao, HudIlusao, definirTema, Devorador, Artefatos, IA };
+  window.__ametista = { Gelo, Glacial, GL_REGIOES, NASCE, Convergencia, ALTAR, CHEFES_CONVERGENCIA, Artefatos, ARTEFATOS, Vazio, IluAv, ChefesIlu, Reflexo, Pesadelo, Distorcedor, EcoIlu, DEF_REVANCHE, PAGINAS_ILUSAO, Entrada, Gravidade, Ilusionista, Espelho, Tempestade, Colosso, Guardiao, Mundo, Jogo, Fluxo, Telecinese, Rajada, Movimento, Progressao, Chefe, Cena, Combate, CONFIG, Render, TIPOS_INIMIGO, Salvamento, Perfil, Escudo, Explosao, Vesper, Soberano, Telas, Hud, Visual, novoInimigo, soltarEnxame, TK, Supremacia, Vazio, HudExt, Combate2: Combate, Ilusao, HudIlusao, definirTema, Devorador, Artefatos, IA };
 })();
 </script>
 </body>
